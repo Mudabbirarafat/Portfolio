@@ -10,11 +10,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohd Mudabbir Arafat | AI Engineer & Full Stack Developer</title>
-<meta name="description" content="AI Engineer, Generative AI & Full Stack Developer. Building AI-powered products that solve real-world problems. Open to Full-Time & Internship opportunities.">
-<meta property="og:title" content="Mohd Mudabbir Arafat | AI Engineer & Full Stack Developer">
-<meta property="og:description" content="Building AI-powered products that solve real-world problems.">
+<title>Mohd Mudabbir Arafat | Full Stack Developer & Software Engineer</title>
+<meta name="description" content="Full Stack Developer and Backend Engineer. SDE Intern at Joveo building JobletAI with Next.js, React and Supabase/PostgreSQL; freelance websites live in production. Open to Software Engineer and Graduate Engineer Trainee roles.">
+<meta property="og:title" content="Mohd Mudabbir Arafat | Full Stack Developer & Software Engineer">
+<meta property="og:description" content="Full Stack Developer building production features for JobletAI at Joveo. Next.js · React · Spring Boot · FastAPI · PostgreSQL.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://mudabbir-arafat.netlify.app/">
+<meta property="og:image" content="https://mudabbir-arafat.netlify.app/Arafat_pict.jpg">
+<link rel="icon" href="mma-logo.png">
+<link rel="canonical" href="https://mudabbir-arafat.netlify.app/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Mohd Mudabbir Arafat","jobTitle":"Full Stack Developer","url":"https://mudabbir-arafat.netlify.app/","image":"https://mudabbir-arafat.netlify.app/Arafat_pict.jpg","email":"mailto:mudabbirarafat000@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Gurgaon","addressCountry":"IN"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Noida Institute of Engineering and Technology"},"worksFor":{"@type":"Organization","name":"Joveo"},"sameAs":["https://github.com/Mudabbirarafat","https://www.linkedin.com/in/mudabbirarafat"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -36,10 +44,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --glow-c:rgba(6,182,212,0.25);
 }
 html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;cursor:none}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
 
-/* CUSTOM CURSOR — Gen-Z */
-*{cursor:none!important}
+/* CUSTOM CURSOR — Gen-Z (mouse/trackpad only; touch screens keep the normal behaviour) */
+#cur-dot,#cur-ring,#cur-blob,#cur-label{display:none}
+body.has-cursor #cur-dot,body.has-cursor #cur-ring,body.has-cursor #cur-blob,body.has-cursor #cur-label{display:block}
+body.has-cursor,body.has-cursor *{cursor:none!important}
+/* text fields get the normal typing cursor, and the custom one steps aside */
+body.has-cursor input,body.has-cursor textarea,body.has-cursor select{cursor:text!important}
+body.has-cursor.cur-text #cur-dot,body.has-cursor.cur-text #cur-ring,body.has-cursor.cur-text #cur-blob,body.has-cursor.cur-text #cur-label,
+body.has-cursor:not(.cur-in) #cur-dot,body.has-cursor:not(.cur-in) #cur-ring,body.has-cursor:not(.cur-in) #cur-blob,body.has-cursor:not(.cur-in) #cur-label{opacity:0}
 #cur-dot{
   position:fixed;width:8px;height:8px;
   background:#fff;border-radius:50%;
@@ -85,13 +99,11 @@ body.cur-click #cur-blob{width:28px;height:28px}
 /* SCROLL PROGRESS */
 #scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--violet),var(--cyan));z-index:1000;transition:width .1s}
 
-/* LOADING SCREEN */
-#loader{position:fixed;inset:0;background:var(--bg);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
-#loader .logo-text{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-#loader .bar-wrap{width:200px;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
-#loader .bar{height:100%;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:2px;animation:load 1.8s ease forwards}
-#loader .load-text{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);letter-spacing:.15em}
-@keyframes load{0%{width:0}100%{width:100%}}
+/* ICONS */
+.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.ic-sm{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.info-icon,.contact-item-icon{color:var(--violet2)}
+.btn-icon{width:48px;height:48px;padding:0;justify-content:center}
 
 /* CANVAS */
 #canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
@@ -100,6 +112,12 @@ body.cur-click #cur-blob{width:28px;height:28px}
 nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(8,13,26,0.7);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:50px;padding:12px 28px;display:flex;align-items:center;gap:8px;transition:all .3s}
 nav a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:20px;transition:all .25s;white-space:nowrap}
 nav a:hover,nav a.active{color:var(--white);background:rgba(124,58,237,0.25)}
+.nav-links{display:flex;align-items:center;gap:inherit}
+.nav-toggle{display:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);background:var(--glass);flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer}
+.nav-toggle span{display:block;width:18px;height:2px;border-radius:2px;background:var(--white);transition:transform .25s,opacity .2s}
+nav.open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+nav.open .nav-toggle span:nth-child(2){opacity:0}
+nav.open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem;background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-right:12px}
 
 /* FLOAT BTNS */
@@ -110,7 +128,7 @@ nav a:hover,nav a.active{color:var(--white);background:rgba(124,58,237,0.25)}
 .float-btn:hover{transform:translateX(-4px) scale(1.05)}
 
 /* SECTIONS */
-section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 5%;max-width:1200px;margin:0 auto}
+section{position:relative;z-index:1;scroll-margin-top:24px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 5%;max-width:1200px;margin:0 auto}
 
 /* HERO */
 #hero{min-height:100vh;justify-content:center;align-items:flex-start;padding-top:120px}
@@ -177,7 +195,9 @@ section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction
 /* individual pill inside slider */
 .sk-pill{display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);white-space:nowrap;transition:all .25s;cursor:default;flex-shrink:0}
 .sk-pill:hover{border-color:var(--violet2);background:rgba(124,58,237,0.1);transform:translateY(-2px)}
-.sk-pill-icon{font-size:1.4rem;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.05)}
+.sk-pill-icon{font-size:1.2rem;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06)}
+.sk-pill-icon img{width:22px;height:22px;display:block}
+.sk-pill-icon img.inv{filter:invert(1)}
 .sk-pill-name{font-size:.9rem;font-weight:600}
 .sk-pill-cat{font-size:.72rem;color:var(--muted);margin-top:1px}
 
@@ -185,8 +205,13 @@ section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px}
 .project-card{background:var(--card);border:1px solid var(--glass-border);border-radius:24px;overflow:hidden;transition:all .4s;position:relative}
 .project-card:hover{transform:translateY(-8px);border-color:rgba(124,58,237,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px var(--glow-v)}
-.project-thumb{height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden}
-.project-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,var(--card))}
+.project-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--glass-border)}
+.project-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.23,1,.32,1)}
+.project-card:hover .project-thumb img{transform:scale(1.04)}
+.project-thumb--code span{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:rgba(255,255,255,0.55);letter-spacing:.04em}
+.project-thumb--code span::before{content:'</';color:var(--violet2)}
+.project-thumb--code span::after{content:'>';color:var(--cyan)}
+
 .proj-body{padding:28px}
 .proj-tag{display:inline-block;padding:4px 12px;border-radius:50px;font-size:.7rem;font-weight:600;margin-bottom:14px}
 .proj-name{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:8px}
@@ -194,13 +219,48 @@ section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction
 .proj-features{margin-bottom:18px}
 .proj-features h4{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .proj-features ul{list-style:none;display:flex;flex-direction:column;gap:5px}
-.proj-features li{font-size:.82rem;color:var(--white);display:flex;align-items:center;gap:8px}
-.proj-features li::before{content:'▸';color:var(--cyan);font-size:.65rem}
+.proj-features li{font-size:.82rem;color:var(--white);display:flex;align-items:baseline;gap:9px;line-height:1.5}
+.proj-features li::before{transform:translateY(-2px)}
+.proj-features li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--cyan);flex-shrink:0}
 .tech-stack{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
 .tech-pill{padding:4px 11px;border-radius:50px;font-size:.72rem;font-weight:500;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:var(--violet2)}
 .proj-footer{display:flex;gap:12px}
 .proj-link{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:.82rem;font-weight:600;text-decoration:none;border:1px solid var(--glass-border);background:var(--glass);color:var(--white);transition:all .25s}
 .proj-link:hover{border-color:var(--violet2);color:var(--violet2)}
+
+/* CLIENT WORK */
+.client-list{display:flex;flex-direction:column;gap:32px}
+.client-card{display:grid;grid-template-columns:1.1fr 1fr;background:var(--card);border:1px solid var(--glass-border);border-radius:24px;overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.client-card:hover{border-color:rgba(124,58,237,0.45);box-shadow:0 20px 60px rgba(0,0,0,0.45)}
+.client-shot{position:relative;display:block;overflow:hidden;background:#0b1222;border-right:1px solid var(--glass-border)}
+.client-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.23,1,.32,1)}
+.client-card:hover .client-shot img{transform:scale(1.03)}
+.browser-bar{position:absolute;top:0;left:0;right:0;height:30px;background:rgba(8,13,26,0.92);display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--glass-border);z-index:1}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.18)}
+.browser-bar b{margin-left:10px;font:500 .7rem 'JetBrains Mono',monospace;color:var(--muted)}
+.client-shot img{padding-top:30px}
+.client-body{padding:32px 32px 28px;display:flex;flex-direction:column}
+.client-status{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.status{display:inline-flex;align-items:center;gap:7px;padding:4px 12px;border-radius:50px;font-size:.72rem;font-weight:600}
+.status-live{background:rgba(16,185,129,0.12);color:#34d399;border:1px solid rgba(16,185,129,0.3)}
+.status-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399}
+.status-wip{background:rgba(245,158,11,0.12);color:#fbbf24;border:1px solid rgba(245,158,11,0.3)}
+.status-role{background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid var(--glass-border)}
+.client-name{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;line-height:1.2;margin-bottom:4px}
+.client-for{font-size:.85rem;color:var(--violet2);margin-bottom:14px}
+.client-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:16px}
+.client-points{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.client-points li{font-size:.84rem;color:var(--white);display:flex;gap:10px;line-height:1.55}
+.client-points li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--cyan);flex-shrink:0;margin-top:.6em}
+.client-v2{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:14px;padding:14px 16px;margin-bottom:18px}
+.client-v2 h4{font-size:.78rem;color:#fbbf24;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.client-v2 p{font-size:.83rem;color:var(--muted);line-height:1.6}
+.client-body .proj-footer{margin-top:auto}
+@media(max-width:900px){
+  .client-card{grid-template-columns:1fr}
+  .client-shot{border-right:none;border-bottom:1px solid var(--glass-border);aspect-ratio:16/10}
+  .client-body{padding:24px}
+}
 
 /* EXPERIENCE */
 .timeline{position:relative;padding-left:32px}
@@ -265,7 +325,7 @@ section{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction
 .recruiter-cta p{color:var(--muted);font-size:.95rem;max-width:500px;margin:0 auto 28px;line-height:1.7}
 
 /* FOOTER */
-footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--glass-border);padding:40px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:20px}
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--glass-border);padding:40px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .footer-link{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s;display:flex;align-items:center;gap:6px}
 .footer-link:hover{color:var(--cyan)}
@@ -287,8 +347,11 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 
 /* MOBILE */
 @media(max-width:900px){
-  nav{gap:4px;padding:10px 16px}
-  nav a{padding:5px 10px;font-size:.78rem}
+  nav{width:min(92%,560px);justify-content:space-between;flex-wrap:wrap;padding:8px 8px 8px 14px;border-radius:26px}
+  .nav-toggle{display:flex}
+  .nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:2px;padding:8px 0 6px}
+  nav.open .nav-links{display:flex}
+  .nav-links a{padding:12px 16px;font-size:.95rem;border-radius:14px}
   .float-btns{display:none}
   .about-grid,.contact-grid{grid-template-columns:1fr}
   .projects-grid{grid-template-columns:1fr}
@@ -297,15 +360,22 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   .form-row{grid-template-columns:1fr}
 }
 @media(max-width:600px){
-  nav{width:92%;overflow-x:auto}
-  section{padding:60px 4%}
-  .hero-btns{flex-direction:column}
-  .btn{justify-content:center}
+  section{padding:60px 4%;scroll-margin-top:40px}
+  .hero-btns .btn:not(.btn-icon){flex:1 1 100%;justify-content:center}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+  #canvas{display:none}
 }
 
 /* EDUCATION CARD */
 .edu-card{background:var(--card);border:1px solid var(--glass-border);border-radius:20px;padding:32px;display:flex;gap:24px;align-items:flex-start;margin-top:32px}
-.edu-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}
+.edu-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.edu-icon .ic{width:26px;height:26px}
 .edu-degree{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:4px}
 .edu-school{color:var(--violet2);font-size:.9rem;margin-bottom:8px}
 .edu-meta{font-size:.8rem;color:var(--muted)}
@@ -321,12 +391,25 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="logo-text">MMA</div>
-  <div class="bar-wrap"><div class="bar"></div></div>
-  <div class="load-text">INITIALIZING PORTFOLIO...</div>
-</div>
+<!-- ICONS (Lucide, ISC licence; GitHub/LinkedIn marks from Simple Icons, CC0) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.71 1.637-1.452 3.37-1.452 3.601 0 4.267 2.37 4.267 4.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+</svg>
 
 <!-- CURSOR -->
 <div id="cur-dot"></div>
@@ -342,45 +425,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- FLOATING BUTTONS -->
 <div class="float-btns">
-  <a href="mailto:mudabbirarafat000@gmail.com" class="float-btn hire">⚡ Hire Me</a>
-  <a href="https://drive.google.com/file/d/12fWRWCyCfJS1accLMpT_QLZ0VOBJIl72/view" target="_blank" class="float-btn resume">📄 Resume</a>
+  <a href="mailto:mudabbirarafat000@gmail.com" class="float-btn hire"><svg class="ic-sm" aria-hidden="true"><use href="#i-mail"/></svg> Hire Me</a>
+  <a href="Mudabbir_Arafat_Resume.pdf" target="_blank" rel="noopener" class="float-btn resume"><svg class="ic-sm" aria-hidden="true"><use href="#i-download"/></svg> Resume</a>
 </div>
 
 <!-- NAV -->
 <nav id="navbar">
-<img src="mma-logo.png"
-     alt="MMA Logo"
-     style="width:32px;height:32px;object-fit:cover;border-radius:50%;">  <a href="#hero" class="active">Home</a>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#experience">Experience</a>
-  <a href="#contact">Contact</a>
+  <img src="mma-logo.png"
+       alt="MMA Logo"
+       style="width:32px;height:32px;object-fit:cover;border-radius:50%;">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-links">
+    <a href="#hero" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#client-work">Client Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section id="hero" style="max-width:1200px">
   <img src="Arafat_pict.jpg" alt="Mohd Mudabbir Arafat" style="width:120px;height:120px;object-fit:cover;border-radius:9999px;margin-bottom:24px;">
   <div class="hero-eyebrow">
-    <span></span> Available for opportunities
+    <span></span> SDE Intern @ Joveo · Open to full-time roles
   </div>
   <h1 class="hero-name">
     <span class="gname">Mohd Mudabbir</span>
     <span class="gname">Arafat</span>
   </h1>
-  <p class="hero-tagline">Building AI-powered products that solve real-world problems.</p>
+  <p class="hero-tagline">Full Stack Developer building fast, reliable web products. Currently shipping AI-powered job search at Joveo.</p>
   <div class="typed-line" id="typed"></div>
   <div class="hero-btns">
-    <a href="mailto:mudabbirarafat000@gmail.com" class="btn btn-primary">⚡ Hire Me</a>
-    <a href="#contact" class="btn btn-outline">💬 Contact Me</a>
-    <a href="https://drive.google.com/file/d/12fWRWCyCfJS1accLMpT_QLZ0VOBJIl72/view" target="_blank" class="btn btn-cyan">📄 Download Resume</a>
-    <a href="https://github.com/Mudabbirarafat" target="_blank" class="btn btn-outline">🐙 GitHub</a>
+    <a href="#contact" class="btn btn-primary">Get in touch <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="Mudabbir_Arafat_Resume.pdf" target="_blank" rel="noopener" class="btn btn-outline"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg> Resume</a>
+    <a href="https://github.com/Mudabbirarafat" target="_blank" rel="noopener" class="btn btn-outline btn-icon" aria-label="GitHub"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg></a>
+    <a href="https://www.linkedin.com/in/mudabbirarafat" target="_blank" rel="noopener" class="btn btn-outline btn-icon" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
   </div>
   <div class="hero-stats">
-    <div class="stat"><span class="stat-num" data-target="10">10+</span><span class="stat-label">Projects Built</span></div>
     <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Internships</span></div>
-    <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Certifications</span></div>
-    <div class="stat"><span class="stat-num" data-target="15">0</span><span class="stat-label">Technologies</span></div>
+    <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Client Sites Live</span></div>
+    <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Personal Projects</span></div>
+    <div class="stat"><span class="stat-num" data-target="25">0</span><span class="stat-label">Technologies</span></div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> <span>Scroll to explore</span></div>
 </section>
@@ -393,180 +481,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="section-title">The Engineer Behind<br><span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">The Machine</span></h2>
   <div class="about-grid reveal">
     <div class="about-text">
-      <p>I'm a <span class="highlight">B.Tech Computer Science (AI & ML)</span> graduate from Noida Institute of Engineering & Technology (NIET). My work sits at the intersection of Generative AI, Full Stack Development, and intelligent systems engineering.</p>
-      <p>I specialize in building <span class="highlight">production-grade AI products</span> — from LLM-powered pipelines and RAG architectures to responsive full-stack web apps. I care deeply about clean code, fast systems, and solving real problems.</p>
-      <p>Whether it's training ML models, orchestrating multi-agent AI workflows with LangGraph & CrewAI, or shipping a React app — I thrive across the <span class="highlight">entire engineering stack</span>.</p>
+      <p>I'm a Full Stack Developer and <span class="highlight">B.Tech Computer Science (AI & ML)</span> graduate (2026) from Noida Institute of Engineering & Technology (NIET).</p>
+      <p>As an <span class="highlight">SDE Intern at Joveo</span>, I build production features for JobletAI, Joveo's AI-powered job-search platform, using Next.js, React and Supabase/PostgreSQL. I've worked on search performance, SEO infrastructure, data feed pipelines, and GPT and Grok integrations.</p>
+      <p>I also work across the MERN stack, Spring Boot and FastAPI: REST APIs, JWT authentication, relational and NoSQL databases, and cloud deployment. I'm looking for <span class="highlight">Software Engineer / Graduate Engineer Trainee</span> roles.</p>
       <div class="about-badges">
-        <span class="badge">🤖 Generative AI</span>
-        <span class="badge">⚡ Full Stack</span>
-        <span class="badge">🧠 Machine Learning</span>
-        <span class="badge">👁️ Computer Vision</span>
-        <span class="badge">📝 NLP</span>
-        <span class="badge">🚀 RAG / LangChain</span>
+        <span class="badge">Full Stack</span>
+        <span class="badge">Backend & APIs</span>
+        <span class="badge">Next.js / React</span>
+        <span class="badge">Spring Boot</span>
+        <span class="badge">PostgreSQL</span>
+        <span class="badge">LLM Integrations</span>
       </div>
     </div>
     <div class="about-card">
-      <div class="info-row"><div class="info-icon">👤</div><div><div class="info-key">Name</div><div class="info-val">Mohd Mudabbir Arafat</div></div></div>
-      <div class="info-row"><div class="info-icon">🎓</div><div><div class="info-key">Education</div><div class="info-val">B.Tech CS (AI & ML) · NIET · 2026</div></div></div>
-      <div class="info-row"><div class="info-icon">📍</div><div><div class="info-key">Location</div><div class="info-val">Lucknow, Uttar Pradesh, India</div></div></div>
-      <div class="info-row"><div class="info-icon">📧</div><div><div class="info-key">Email</div><div class="info-val"><a href="mailto:mudabbirarafat000@gmail.com">mudabbirarafat000@gmail.com</a></div></div></div>
-      <div class="info-row"><div class="info-icon">📱</div><div><div class="info-key">Phone</div><div class="info-val">+91 89574 26331</div></div></div>
-      <div class="info-row"><div class="info-icon">💼</div><div><div class="info-key">Status</div><div class="info-val" style="color:var(--cyan)">Open to Opportunities ✓</div></div></div>
+      <div class="info-row"><div class="info-icon"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></div><div><div class="info-key">Name</div><div class="info-val">Mohd Mudabbir Arafat</div></div></div>
+      <div class="info-row"><div class="info-icon"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg></div><div><div class="info-key">Education</div><div class="info-val">B.Tech CS (AI & ML) · NIET · 2026</div></div></div>
+      <div class="info-row"><div class="info-icon"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg></div><div><div class="info-key">Current Role</div><div class="info-val">SDE Intern · Joveo</div></div></div>
+      <div class="info-row"><div class="info-icon"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></div><div><div class="info-key">Location</div><div class="info-val">Gurgaon, India</div></div></div>
+      <div class="info-row"><div class="info-icon"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></div><div><div class="info-key">Email</div><div class="info-val"><a href="mailto:mudabbirarafat000@gmail.com">mudabbirarafat000@gmail.com</a></div></div></div>
+      <div class="info-row"><div class="info-icon"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></div><div><div class="info-key">Phone</div><div class="info-val"><a href="tel:+918957426331">+91 89574 26331</a></div></div></div>
+      <div class="info-row"><div class="info-icon"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div><div><div class="info-key">Status</div><div class="info-val" style="color:var(--cyan)">Open to Full-Time Roles ✓</div></div></div>
     </div>
   </div>
 
   <div class="edu-card reveal" style="margin-top:48px">
-    <div class="edu-icon">🎓</div>
+    <div class="edu-icon"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg></div>
     <div>
       <div class="edu-degree">Bachelor of Technology — Computer Science & Engineering (AI & ML)</div>
       <div class="edu-school">Noida Institute of Engineering and Technology (NIET), Noida</div>
-      <div class="edu-meta">CGPA: 7.2+ &nbsp;·&nbsp;Graduation: June 2026 &nbsp;·&nbsp; Relevant Subjects: DSA, DBMS, OS, Networks, ML, Deep Learning</div>
+      <div class="edu-meta">CGPA: 7.3 &nbsp;·&nbsp; Graduated: June 2026 &nbsp;·&nbsp; Relevant Coursework: Data Structures & Algorithms, DBMS, Operating Systems, Computer Networks, Machine Learning, Deep Learning</div>
     </div>
   </div>
 
   <div class="recruiter-cta reveal">
-    <h3>Open to Full-Time & Internship Roles</h3>
-    <p>Actively looking for opportunities as an <strong>AI Engineer · Generative AI Engineer · Full Stack Developer · ML Engineer</strong>. Let's build something great together.</p>
+    <h3>Open to Full-Time Roles</h3>
+    <p>Looking for <strong>Software Engineer · Graduate Engineer Trainee · Full Stack Developer · Backend Engineer</strong> roles at product or service companies. Let's build something great together.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="mailto:mudabbirarafat000@gmail.com" class="btn btn-primary">📩 Let's Talk</a>
-      <a href="#contact" class="btn btn-outline">View My Work</a>
-    </div>
-  </div>
-</section>
-
-<div class="section-sep"><div class="glow-divider"></div></div>
-
-<!-- ═══════════════ SKILLS ═══════════════ -->
-<section id="skills">
-  <div class="section-label">Technical Skills</div>
-  <h2 class="section-title">My Tech <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Arsenal</span></h2>
-  <p class="section-sub">From AI/ML pipelines to production web apps — here's the full stack I work with.</p>
-
-  <div class="skill-blocks reveal" id="skill-blocks"></div>
-</section>
-
-<div class="section-sep"><div class="glow-divider"></div></div>
-
-<!-- ═══════════════ PROJECTS ═══════════════ -->
-<section id="projects">
-  <div class="section-label">Projects</div>
-  <h2 class="section-title">What I've <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Built</span></h2>
-  <p class="section-sub">Production-ready projects spanning Generative AI, Full Stack web, and intelligent systems.</p>
-
-  <div class="projects-grid">
-
-    <!-- StoryForge -->
-    <div class="project-card reveal">
-      <div class="project-thumb" style="background:linear-gradient(135deg,#1e0a3c,#0d2340)">🎙️</div>
-      <div class="proj-body">
-        <span class="proj-tag" style="background:rgba(124,58,237,0.2);color:var(--violet2);border:1px solid rgba(124,58,237,0.3)">Generative AI</span>
-        <div class="proj-name">StoryForge AI</div>
-        <div class="proj-desc">AI-powered Voice Story Generator that converts voice input into dynamically narrated immersive stories using a STT → LLM → TTS pipeline. Scalable async backend reducing latency by 40%.</div>
-        <div class="tech-stack">
-          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">LLMs</span><span class="tech-pill">STT</span><span class="tech-pill">TTS</span><span class="tech-pill">OpenAI</span>
-        </div>
-        <div class="proj-features">
-          <h4>Key Features</h4>
-          <ul>
-            <li>Voice-based story generation with STT pipeline</li>
-            <li>Multiple LLM support (OpenAI-compatible)</li>
-            <li>Async FastAPI backend with 40% latency reduction</li>
-            <li>Contextually rich narrative generation</li>
-            <li>Production-ready architecture</li>
-          </ul>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Mudabbirarafat/storyforge-ai-voice-narrator" target="_blank" class="proj-link">🐙 GitHub Repo</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MedVision AI -->
-    <div class="project-card reveal">
-      <div class="project-thumb" style="background:linear-gradient(135deg,#0a2040,#0d3a1a)">🏥</div>
-      <div class="proj-body">
-        <span class="proj-tag" style="background:rgba(6,182,212,0.15);color:var(--cyan);border:1px solid rgba(6,182,212,0.3)">AI + Computer Vision</span>
-        <div class="proj-name">MedVision AI</div>
-        <div class="proj-desc">AI-Powered Medical Diagnosis System combining Computer Vision and ML for medical image analysis, disease prediction, and secure clinical dashboards.</div>
-        <div class="tech-stack">
-          <span class="tech-pill">Python</span><span class="tech-pill">React.js</span><span class="tech-pill">FastAPI</span><span class="tech-pill">CV</span><span class="tech-pill">MongoDB</span><span class="tech-pill">REST API</span>
-        </div>
-        <div class="proj-features">
-          <h4>Key Features</h4>
-          <ul>
-            <li>AI-assisted medical image analysis</li>
-            <li>Disease prediction with ML models</li>
-            <li>Secure JWT authentication</li>
-            <li>Responsive clinical dashboard</li>
-            <li>REST API architecture</li>
-          </ul>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Mudabbirarafat/medvision-ai" target="_blank" class="proj-link">🐙 GitHub Repo</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- FitLife -->
-    <div class="project-card reveal">
-      <div class="project-thumb" style="background:linear-gradient(135deg,#1a0a0a,#2d1a00)">💪</div>
-      <div class="proj-body">
-        <span class="proj-tag" style="background:rgba(234,88,12,0.15);color:#fb923c;border:1px solid rgba(234,88,12,0.3)">Full Stack · MERN</span>
-        <div class="proj-name">FitLife</div>
-        <div class="proj-desc">Full-stack fitness platform with role-based JWT auth securing 10+ API endpoints, 15+ RESTful APIs, and a responsive React UI for personalised workout tracking & analytics.</div>
-        <div class="tech-stack">
-          <span class="tech-pill">React.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">Express.js</span><span class="tech-pill">MongoDB</span><span class="tech-pill">JWT</span><span class="tech-pill">Tailwind</span>
-        </div>
-        <div class="proj-features">
-          <h4>Key Features</h4>
-          <ul>
-            <li>Role-based JWT authentication</li>
-            <li>Workout tracking & progress analytics</li>
-            <li>15+ RESTful API endpoints</li>
-            <li>Admin panel & user dashboard</li>
-            <li>Fully responsive cross-device UI</li>
-          </ul>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Mudabbirarafat/mern-gym-website" target="_blank" class="proj-link">🐙 GitHub Repo</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Courier Management -->
-    <div class="project-card reveal">
-      <div class="project-thumb" style="background:linear-gradient(135deg,#0a1a2d,#1a0a2d)">📦</div>
-      <div class="proj-body">
-        <span class="proj-tag" style="background:rgba(99,102,241,0.15);color:#a78bfa;border:1px solid rgba(99,102,241,0.3)">Spring Boot · Java</span>
-        <div class="proj-name">Courier Management System</div>
-        <div class="proj-desc">Role-based courier tracking platform built with Spring Boot supporting Admin, Agent, and Customer workflows. Normalized MySQL schema (8 tables) handling 1000+ shipment records efficiently.</div>
-        <div class="tech-stack">
-          <span class="tech-pill">Java</span><span class="tech-pill">Spring Boot</span><span class="tech-pill">MySQL</span><span class="tech-pill">JWT</span><span class="tech-pill">REST APIs</span>
-        </div>
-        <div class="proj-features">
-          <h4>Key Features</h4>
-          <ul>
-            <li>Real-time shipment tracking</li>
-            <li>Multi-role JWT authentication (Admin/Agent/Customer)</li>
-            <li>Normalized 8-table MySQL schema</li>
-            <li>CRUD with validation & exception handling</li>
-            <li>Handles 1000+ shipment records</li>
-          </ul>
-        </div>
-        <div class="proj-footer">
-          <a href="https://github.com/Mudabbirarafat/Courier_Management_springboot" target="_blank" class="proj-link">🐙 GitHub Repo</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="recruiter-cta reveal" style="margin-top:60px">
-    <h3>Like what you see?</h3>
-    <p>I'm always working on new AI and Full Stack projects. Explore my GitHub for more work, or let's discuss how I can bring value to your team.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="https://github.com/Mudabbirarafat" target="_blank" class="btn btn-primary">🐙 View All Projects</a>
-      <a href="#contact" class="btn btn-outline">💬 Get In Touch</a>
+      <a href="#contact" class="btn btn-primary">Let's talk <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a href="#projects" class="btn btn-outline">View My Work</a>
     </div>
   </div>
 </section>
@@ -577,9 +529,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="experience">
   <div class="section-label">Experience</div>
   <h2 class="section-title">Work <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Experience</span></h2>
-  <p class="section-sub">Real-world engineering experience across AI/ML, backend systems, and software development.</p>
+  <p class="section-sub">Production engineering at Joveo, plus internships across ML and backend development.</p>
 
   <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-top">
+          <div class="tl-role">Software Development Engineer Intern</div>
+          <div class="tl-period">Jul 2026 – Present</div>
+        </div>
+        <div class="tl-company">Joveo · Gurgaon</div>
+        <ul class="tl-bullets">
+          <li>Develop and optimize production features for JobletAI, Joveo's AI-powered job-search platform, using Next.js, React, Supabase/PostgreSQL, and REST APIs.</li>
+          <li>Resolved job-search database bottlenecks caused by inefficient wildcard queries through improved indexing strategies.</li>
+          <li>Build and integrate Grok and GPT-based plugins to extend JobletAI's AI-driven search and automation workflows.</li>
+          <li>Developed Wheels2Wages and an automated CSV-to-XML feed pipeline for publisher job-data integration.</li>
+          <li>Built JobletAI's SEO infrastructure (XML sitemaps, Google Job Posting structured data) and automated publisher email workflows via Sendy and Amazon SES.</li>
+        </ul>
+      </div>
+    </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-card">
@@ -598,31 +567,219 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-top">
-          <div class="tl-role">Python ML Intern</div>
+          <div class="tl-role">AIML Intern</div>
           <div class="tl-period">2023–2024</div>
         </div>
         <div class="tl-company">SoftPro, Lucknow</div>
         <ul class="tl-bullets">
-          <li>Implemented Python applications and ML workflows covering model training, optimization, and deployment.</li>
+          <li>Implemented Python applications and ML workflows covering model training, optimisation, and deployment.</li>
           <li>Participated in SDLC activities including requirement analysis, code review, and technical documentation.</li>
         </ul>
       </div>
     </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-top">
-          <div class="tl-role">LLM Post Training Intern</div>
-          <div class="tl-period">2024–2025</div>
-        </div>
-        <div class="tl-company">Ethara AI</div>
-        <ul class="tl-bullets">
-          <li>Worked on LLM post-training workflows including RLHF data preparation and model evaluation pipelines.</li>
-          <li>Contributed to prompt engineering, model benchmarking, and generative AI quality assurance.</li>
+  </div>
+</section>
+
+<div class="section-sep"><div class="glow-divider"></div></div>
+
+<!-- ═══════════════ CLIENT WORK ═══════════════ -->
+<section id="client-work">
+  <div class="section-label">Freelance</div>
+  <h2 class="section-title">Client <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Work</span></h2>
+  <p class="section-sub">Websites I've designed, built and shipped for real clients, from scratch to production.</p>
+
+  <div class="client-list">
+
+    <!-- ICSF / Sustainability Carnival -->
+    <article class="client-card reveal">
+      <a class="client-shot" href="https://icsf.in/" target="_blank" rel="noopener" aria-label="Open icsf.in">
+        <div class="browser-bar"><i></i><i></i><i></i><b>icsf.in</b></div>
+        <img src="assets/projects/icsf.webp" alt="Sustainability Carnival 2026 website home page" loading="lazy" width="960" height="600">
+      </a>
+      <div class="client-body">
+        <div class="client-status"><span class="status status-live">Live in production</span><span class="status status-role">Built from scratch</span></div>
+        <h3 class="client-name">Sustainability Carnival 2026</h3>
+        <div class="client-for">Event platform · icsf.in · BrandsGlobal Media</div>
+        <p class="client-desc">The full website for a national CSR and sustainability awards event: public site, award nominations, delegate passes and an admin side for the organisers.</p>
+        <ul class="client-points">
+          <li>Online award nomination system with multi-section forms, backed by a PHP REST API</li>
+          <li>Admin dashboard with secure token-based login for reviewing nominations</li>
+          <li>AI chatbot assistant that answers visitor questions about the event</li>
+          <li>Gallery, past events, speakers, press releases, newsletter sign-up and contact form</li>
         </ul>
+        <div class="tech-stack">
+          <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">PHP</span><span class="tech-pill">REST API</span><span class="tech-pill">AI Chatbot</span>
+        </div>
+        <div class="proj-footer">
+          <a href="https://icsf.in/" target="_blank" rel="noopener" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Visit site</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Radiant Institute of Fire & Safety -->
+    <article class="client-card reveal">
+      <a class="client-shot" href="https://radiantfiresafety.com/" target="_blank" rel="noopener" aria-label="Open radiantfiresafety.com">
+        <div class="browser-bar"><i></i><i></i><i></i><b>radiantfiresafety.com</b></div>
+        <img src="assets/projects/rifs.webp" alt="Radiant Institute of Fire and Safety website home page" loading="lazy" width="960" height="600">
+      </a>
+      <div class="client-body">
+        <div class="client-status"><span class="status status-live">Live in production</span><span class="status status-wip">v2 in progress</span></div>
+        <h3 class="client-name">Radiant Institute of Fire &amp; Safety</h3>
+        <div class="client-for">Institute website · radiantfiresafety.com · Darbhanga, Bihar</div>
+        <p class="client-desc">Website for a fire and safety training institute, showing its courses, placements and trainers to prospective students.</p>
+        <div class="client-v2">
+          <h4>Now building v2</h4>
+          <p>A full rebuild: a page for every course, a working enquiry form that emails the institute, SEO structured data and sitemap, a mobile call/WhatsApp bar, and about 80% less page weight.</p>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">PHP</span><span class="tech-pill">SEO</span>
+        </div>
+        <div class="proj-footer">
+          <a href="https://radiantfiresafety.com/" target="_blank" rel="noopener" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Visit site</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="section-sep"><div class="glow-divider"></div></div>
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">What I've <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Built</span></h2>
+  <p class="section-sub">Full stack, backend and AI projects, from MERN and Spring Boot apps to LLM-powered pipelines.</p>
+
+  <div class="projects-grid">
+
+    <!-- StoryForge -->
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="assets/projects/storyforge.webp" alt="StoryForge AI voice story narrator app" loading="lazy" width="960" height="600"></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(124,58,237,0.2);color:var(--violet2);border:1px solid rgba(124,58,237,0.3)">Generative AI</span>
+        <div class="proj-name">StoryForge AI</div>
+        <div class="proj-desc">AI-powered Voice Story Generator that converts voice input into dynamically narrated immersive stories using a STT → LLM → TTS pipeline. Scalable async backend reducing latency by 40%.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">LLMs</span><span class="tech-pill">STT</span><span class="tech-pill">TTS</span><span class="tech-pill">OpenAI</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Voice-based story generation with STT pipeline</li>
+            <li>Multiple LLM support (OpenAI-compatible)</li>
+            <li>Async FastAPI backend with 40% latency reduction</li>
+            <li>Contextually rich narrative generation</li>
+            <li>Production-ready architecture</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a href="https://storyforge-ai-voice-narrator.vercel.app" target="_blank" rel="noopener" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live Demo</a>
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/storyforge-ai-voice-narrator" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
       </div>
     </div>
+
+    <!-- FitLife -->
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="assets/projects/fitlife.webp" alt="FitLife fitness platform home page" loading="lazy" width="960" height="600"></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(234,88,12,0.15);color:#fb923c;border:1px solid rgba(234,88,12,0.3)">Full Stack · MERN</span>
+        <div class="proj-name">FitLife</div>
+        <div class="proj-desc">Full-stack fitness platform with role-based JWT auth securing 10+ API endpoints, 15+ RESTful APIs, and a responsive React UI for personalised workout tracking & analytics.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">React.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">Express.js</span><span class="tech-pill">MongoDB</span><span class="tech-pill">JWT</span><span class="tech-pill">Tailwind</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Role-based JWT authentication</li>
+            <li>Workout tracking & progress analytics</li>
+            <li>15+ RESTful API endpoints</li>
+            <li>Admin panel & user dashboard</li>
+            <li>Fully responsive cross-device UI</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a href="https://mern-gym-website-dlcu.vercel.app/" target="_blank" rel="noopener" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live Demo</a>
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/mern-gym-website" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MedVision AI -->
+    <div class="project-card reveal">
+      <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#0a2040,#0d3a1a)"><span>MedVision AI</span></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(6,182,212,0.15);color:var(--cyan);border:1px solid rgba(6,182,212,0.3)">AI + Computer Vision</span>
+        <div class="proj-name">MedVision AI</div>
+        <div class="proj-desc">AI-Powered Medical Diagnosis System combining Computer Vision and ML for medical image analysis, disease prediction, and secure clinical dashboards.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">Python</span><span class="tech-pill">React.js</span><span class="tech-pill">FastAPI</span><span class="tech-pill">CV</span><span class="tech-pill">MongoDB</span><span class="tech-pill">REST API</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>AI-assisted medical image analysis</li>
+            <li>Disease prediction with ML models</li>
+            <li>Secure JWT authentication</li>
+            <li>Responsive clinical dashboard</li>
+            <li>REST API architecture</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/medvision-ai" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Courier Management -->
+    <div class="project-card reveal">
+      <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#0a1a2d,#1a0a2d)"><span>Courier Management</span></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(99,102,241,0.15);color:#a78bfa;border:1px solid rgba(99,102,241,0.3)">Spring Boot · Java</span>
+        <div class="proj-name">Courier Management System</div>
+        <div class="proj-desc">Role-based courier tracking platform built with Spring Boot supporting Admin, Agent, and Customer workflows. Normalized MySQL schema (8 tables) handling 1000+ shipment records efficiently.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">Java</span><span class="tech-pill">Spring Boot</span><span class="tech-pill">MySQL</span><span class="tech-pill">JWT</span><span class="tech-pill">REST APIs</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Real-time shipment tracking</li>
+            <li>Multi-role JWT authentication (Admin/Agent/Customer)</li>
+            <li>Normalized 8-table MySQL schema</li>
+            <li>CRUD with validation & exception handling</li>
+            <li>Handles 1000+ shipment records</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/Courier_Management_springboot" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <div class="recruiter-cta reveal" style="margin-top:60px">
+    <h3>Like what you see?</h3>
+    <p>I'm always working on new AI and Full Stack projects. Explore my GitHub for more work, or let's discuss how I can bring value to your team.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a rel="noopener" href="https://github.com/Mudabbirarafat" target="_blank" class="btn btn-primary"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg> View all on GitHub</a>
+      <a href="#contact" class="btn btn-outline">Get in touch <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="section-sep"><div class="glow-divider"></div></div>
+
+<!-- ═══════════════ SKILLS ═══════════════ -->
+<section id="skills">
+  <div class="section-label">Technical Skills</div>
+  <h2 class="section-title">My Tech <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Arsenal</span></h2>
+  <p class="section-sub">From production web apps to backend APIs and databases: here's the stack I work with.</p>
+
+  <div class="skill-blocks reveal" id="skill-blocks"></div>
 </section>
 
 <div class="section-sep"><div class="glow-divider"></div></div>
@@ -633,13 +790,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="section-title">Credentials & <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Learning</span></h2>
 
   <div class="certs-grid reveal">
-    <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">Python Essentials</div><div class="cert-org">Cisco</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">Introduction to Networking</div><div class="cert-org">Cisco</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🔒</div><div><div class="cert-name">Introduction to Cybersecurity</div><div class="cert-org">Cisco</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🤖</div><div><div class="cert-name">Introduction to Artificial Intelligence</div><div class="cert-org">Coursera</div></div></div>
-    <div class="cert-card"><div class="cert-icon">🧠</div><div><div class="cert-name">Machine Learning & Deep Learning Specialization</div><div class="cert-org">Coursera</div></div></div>
-    <div class="cert-card"><div class="cert-icon">⚛️</div><div><div class="cert-name">React.js Certification</div><div class="cert-org">Infosys Springboard</div></div></div>
     <div class="cert-card"><div class="cert-icon">🍃</div><div><div class="cert-name">Full Stack Development with Angular & Spring</div><div class="cert-org">Infosys Springboard</div></div></div>
+    <div class="cert-card"><div class="cert-icon">⚛️</div><div><div class="cert-name">React.js Certification</div><div class="cert-org">Infosys Springboard</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🧠</div><div><div class="cert-name">Machine Learning & Deep Learning Specialization</div><div class="cert-org">Coursera</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🤖</div><div><div class="cert-name">Introduction to Artificial Intelligence</div><div class="cert-org">Coursera</div></div></div>
+    <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">Python Essentials</div><div class="cert-org">Online Certification</div></div></div>
   </div>
 
   <!-- ACHIEVEMENTS -->
@@ -670,24 +825,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="contact">
   <div class="section-label">Get In Touch</div>
   <h2 class="section-title">Let's <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Connect</span></h2>
-  <p class="section-sub">Interested in working together? I'm actively looking for Full-Time, Internship, AI Engineer, ML Engineer, Generative AI, and Full Stack Developer opportunities. Feel free to reach out!</p>
+  <p class="section-sub">Interested in working together? I'm looking for Software Engineer, Graduate Engineer Trainee, Full Stack Developer, and Backend Engineer roles. Feel free to reach out!</p>
 
   <div class="contact-grid">
     <div class="contact-info reveal">
       <h3>Open to Opportunities</h3>
-      <p>Whether you're a recruiter, startup founder, or fellow engineer — my inbox is always open. I respond to every message within 24 hours.</p>
+      <p>Recruiters, founders and anyone who needs a website built: my inbox is open, and I reply within 24 hours.</p>
       <div class="contact-items">
-        <div class="contact-item"><div class="contact-item-icon">📧</div><div><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:mudabbirarafat000@gmail.com">mudabbirarafat000@gmail.com</a></div></div></div>
-        <div class="contact-item"><div class="contact-item-icon">📱</div><div><div class="contact-item-label">Phone</div><div class="contact-item-val"><a href="tel:+918957426331">+91 89574 26331</a></div></div></div>
-        <div class="contact-item"><div class="contact-item-icon">💼</div><div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val"><a href="https://www.linkedin.com/in/mudabbirarafat" target="_blank">linkedin.com/in/mudabbirarafat</a></div></div></div>
-        <div class="contact-item"><div class="contact-item-icon">🐙</div><div><div class="contact-item-label">GitHub</div><div class="contact-item-val"><a href="https://github.com/Mudabbirarafat" target="_blank">github.com/Mudabbirarafat</a></div></div></div>
-        <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Location</div><div class="contact-item-val">Lucknow, Uttar Pradesh, India</div></div></div>
+        <div class="contact-item"><div class="contact-item-icon"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></div><div><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:mudabbirarafat000@gmail.com">mudabbirarafat000@gmail.com</a></div></div></div>
+        <div class="contact-item"><div class="contact-item-icon"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></div><div><div class="contact-item-label">Phone</div><div class="contact-item-val"><a href="tel:+918957426331">+91 89574 26331</a></div></div></div>
+        <div class="contact-item"><div class="contact-item-icon"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></div><div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val"><a href="https://www.linkedin.com/in/mudabbirarafat" target="_blank" rel="noopener">linkedin.com/in/mudabbirarafat</a></div></div></div>
+        <div class="contact-item"><div class="contact-item-icon"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg></div><div><div class="contact-item-label">GitHub</div><div class="contact-item-val"><a href="https://github.com/Mudabbirarafat" target="_blank" rel="noopener">github.com/Mudabbirarafat</a></div></div></div>
+        <div class="contact-item"><div class="contact-item-icon"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></div><div><div class="contact-item-label">Location</div><div class="contact-item-val">Gurgaon, India</div></div></div>
       </div>
     </div>
 
     <div class="contact-form reveal">
       <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:24px">Send a Message</h3>
-      <div id="form-success" class="form-success">✅ Message sent! I'll get back to you within 24 hours.</div>
+      <div id="form-success" class="form-success">Message sent. I'll get back to you within 24 hours.</div>
       <form id="contact-form" onsubmit="submitForm(event)">
         <div class="form-row">
           <div class="form-group"><label>Your Name</label><input type="text" id="f-name" placeholder="John Doe" required></div>
@@ -696,7 +851,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-group"><label>Subject</label><input type="text" id="f-subject" placeholder="Internship Opportunity / Collaboration / Hiring" required></div>
         <div class="form-group"><label>Message</label><textarea id="f-message" placeholder="Tell me about the opportunity or project..." required></textarea></div>
         <button type="submit" class="send-btn" id="send-btn">
-          <span id="btn-text">🚀 Send Message</span>
+          <span id="btn-text">Send message</span><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg>
         </button>
       </form>
     </div>
@@ -706,78 +861,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
   <div class="footer-links">
-    <a href="https://github.com/Mudabbirarafat" target="_blank" class="footer-link">🐙 GitHub</a>
-    <a href="https://www.linkedin.com/in/mudabbirarafat" target="_blank" class="footer-link">💼 LinkedIn</a>
-    <a href="mailto:mudabbirarafat000@gmail.com" class="footer-link">📧 Email</a>
-    <a href="tel:+918957426331" class="footer-link">📱 +91 89574 26331</a>
+    <a href="https://github.com/Mudabbirarafat" target="_blank" rel="noopener" class="footer-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> GitHub</a>
+    <a href="https://www.linkedin.com/in/mudabbirarafat" target="_blank" rel="noopener" class="footer-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
+    <a href="mailto:mudabbirarafat000@gmail.com" class="footer-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-mail"/></svg> Email</a>
+    <a href="tel:+918957426331" class="footer-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-phone"/></svg> +91 89574 26331</a>
   </div>
-  <div class="footer-copy">© 2025 Mohd Mudabbir Arafat · Built with ❤️ & ⚡</div>
-  <a href="#hero" class="back-top">↑</a>
+  <div class="footer-copy">© 2026 Mohd Mudabbir Arafat · Designed and built by me</div>
+  <a href="#hero" class="back-top" aria-label="Back to top"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
 </footer>
 
 <script>
-// ─── SKILLS DATA ───
-const skills = [
-  // AI & ML
-  {name:'Machine Learning',cat:'AI & ML',icon:'🧠',tab:'ai'},
-  {name:'Deep Learning',cat:'AI & ML',icon:'🔮',tab:'ai'},
-  {name:'NLP',cat:'AI & ML',icon:'📝',tab:'ai'},
-  {name:'Computer Vision',cat:'AI & ML',icon:'👁️',tab:'ai'},
-  {name:'Generative AI',cat:'AI & ML',icon:'✨',tab:'ai'},
-  {name:'LangChain',cat:'AI & ML',icon:'⛓️',tab:'ai'},
-  {name:'LangGraph',cat:'AI & ML',icon:'🕸️',tab:'ai'},
-  {name:'CrewAI',cat:'AI & ML',icon:'🤝',tab:'ai'},
-  {name:'RAG',cat:'AI & ML',icon:'📚',tab:'ai'},
-  {name:'Prompt Engineering',cat:'AI & ML',icon:'🎯',tab:'ai'},
-  {name:'OpenAI / GPT',cat:'AI & ML',icon:'🤖',tab:'ai'},
-  {name:'Hugging Face',cat:'AI & ML',icon:'🤗',tab:'ai'},
-  {name:'OpenCV',cat:'AI & ML',icon:'🔭',tab:'ai'},
-  {name:'Groq',cat:'AI & ML',icon:'⚡',tab:'ai'},
-  // Frontend
-  {name:'React.js',cat:'Frontend',icon:'⚛️',tab:'frontend'},
-  {name:'Next.js',cat:'Frontend',icon:'▲',tab:'frontend'},
-  {name:'TypeScript',cat:'Frontend',icon:'📘',tab:'frontend'},
-  {name:'JavaScript ES6+',cat:'Frontend',icon:'🟡',tab:'frontend'},
-  {name:'Tailwind CSS',cat:'Frontend',icon:'🎨',tab:'frontend'},
-  {name:'HTML5 / CSS3',cat:'Frontend',icon:'🌐',tab:'frontend'},
-  // Backend
-  {name:'Node.js',cat:'Backend',icon:'🟢',tab:'backend'},
-  {name:'Express.js',cat:'Backend',icon:'🚂',tab:'backend'},
-  {name:'FastAPI',cat:'Backend',icon:'⚡',tab:'backend'},
-  {name:'Spring Boot',cat:'Backend',icon:'🍃',tab:'backend'},
-  {name:'Python',cat:'Backend',icon:'🐍',tab:'backend'},
-  {name:'Java',cat:'Backend',icon:'☕',tab:'backend'},
-  {name:'REST APIs',cat:'Backend',icon:'🔗',tab:'backend'},
-  {name:'JWT Auth',cat:'Backend',icon:'🔑',tab:'backend'},
-  // Databases
-  {name:'MongoDB',cat:'Databases',icon:'🍃',tab:'database'},
-  {name:'PostgreSQL',cat:'Databases',icon:'🐘',tab:'database'},
-  {name:'MySQL',cat:'Databases',icon:'🗃️',tab:'database'},
-  {name:'Firebase',cat:'Databases',icon:'🔥',tab:'database'},
-  // Tools
-  {name:'Git / GitHub',cat:'Tools',icon:'🐙',tab:'tools'},
-  {name:'Docker',cat:'Tools',icon:'🐳',tab:'tools'},
-  {name:'Postman',cat:'Tools',icon:'📮',tab:'tools'},
-  {name:'Vercel',cat:'Tools',icon:'▲',tab:'tools'},
-  {name:'VS Code',cat:'Tools',icon:'💻',tab:'tools'},
-  {name:'Linux',cat:'Tools',icon:'🐧',tab:'tools'},
-];
-
 // ─── SKILLS BLOCKS + SLIDERS ───
+const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/';
 const skillCategories = [
   {
-    title:'AI & Machine Learning', icon:'🧠',
-    color:'rgba(124,58,237,0.2)', borderColor:'rgba(124,58,237,0.4)',
-    speed: 28,
+    title:'Languages', icon:'💻',
+    color:'rgba(236,72,153,0.15)', borderColor:'rgba(236,72,153,0.35)',
+    speed: 18,
     items:[
-      {name:'Machine Learning',icon:'🧠'},{name:'Deep Learning',icon:'🔮'},
-      {name:'NLP',icon:'📝'},{name:'Computer Vision',icon:'👁️'},
-      {name:'Generative AI',icon:'✨'},{name:'LangChain',icon:'⛓️'},
-      {name:'LangGraph',icon:'🕸️'},{name:'CrewAI',icon:'🤝'},
-      {name:'RAG',icon:'📚'},{name:'Prompt Engineering',icon:'🎯'},
-      {name:'OpenAI / GPT',icon:'🤖'},{name:'Claude / Anthropic',icon:'🎭'},
-      {name:'Gemini',icon:'💫'},{name:'Hugging Face',icon:'🤗'},
-      {name:'OpenCV',icon:'🔭'},{name:'Groq',icon:'⚡'},
+      {name:'Java',logo:'java/java-original'},{name:'Python',logo:'python/python-original'},
+      {name:'JavaScript (ES6+)',logo:'javascript/javascript-original'},{name:'SQL',logo:'azuresqldatabase/azuresqldatabase-original'},
     ]
   },
   {
@@ -785,42 +888,49 @@ const skillCategories = [
     color:'rgba(6,182,212,0.15)', borderColor:'rgba(6,182,212,0.35)',
     speed: 22,
     items:[
-      {name:'React.js',icon:'⚛️'},{name:'Next.js',icon:'▲'},
-      {name:'TypeScript',icon:'📘'},{name:'JavaScript ES6+',icon:'🟡'},
-      {name:'Tailwind CSS',icon:'🎨'},{name:'HTML5',icon:'🌐'},
-      {name:'CSS3',icon:'🎭'},{name:'Responsive Design',icon:'📱'},
+      {name:'React.js',logo:'react/react-original'},{name:'Next.js',logo:'nextjs/nextjs-original',invert:true},
+      {name:'HTML5',logo:'html5/html5-original'},{name:'CSS3',logo:'css3/css3-original'},
+      {name:'Tailwind CSS',logo:'tailwindcss/tailwindcss-original'},{name:'Responsive Web Design',icon:'📱'},
     ]
   },
   {
     title:'Backend & APIs', icon:'⚡',
     color:'rgba(16,185,129,0.15)', borderColor:'rgba(16,185,129,0.35)',
-    speed: 25,
+    speed: 22,
     items:[
-      {name:'Node.js',icon:'🟢'},{name:'Express.js',icon:'🚂'},
-      {name:'FastAPI',icon:'⚡'},{name:'Spring Boot',icon:'🍃'},
-      {name:'Python',icon:'🐍'},{name:'Java',icon:'☕'},
+      {name:'Node.js',logo:'nodejs/nodejs-original'},{name:'Express.js',logo:'express/express-original',invert:true},
+      {name:'Spring Boot',logo:'spring/spring-original'},{name:'FastAPI',logo:'fastapi/fastapi-original'},
       {name:'REST APIs',icon:'🔗'},{name:'JWT Auth',icon:'🔑'},
-      {name:'SQL',icon:'🗄️'},
     ]
   },
   {
     title:'Databases', icon:'🗃️',
     color:'rgba(245,158,11,0.12)', borderColor:'rgba(245,158,11,0.3)',
-    speed: 20,
+    speed: 18,
     items:[
-      {name:'MongoDB',icon:'🍃'},{name:'PostgreSQL',icon:'🐘'},
-      {name:'MySQL',icon:'🗃️'},{name:'Firebase',icon:'🔥'},
+      {name:'PostgreSQL',logo:'postgresql/postgresql-original'},{name:'Supabase',logo:'supabase/supabase-original'},
+      {name:'MongoDB',logo:'mongodb/mongodb-original'},{name:'MySQL',logo:'mysql/mysql-original'},
     ]
   },
   {
-    title:'Tools & DevOps', icon:'🛠️',
+    title:'Tools & Cloud', icon:'🛠️',
     color:'rgba(99,102,241,0.15)', borderColor:'rgba(99,102,241,0.35)',
+    speed: 25,
+    items:[
+      {name:'Git',logo:'git/git-original'},{name:'GitHub',logo:'github/github-original',invert:true},
+      {name:'Docker',logo:'docker/docker-original'},{name:'Postman',logo:'postman/postman-original'},
+      {name:'Linux',logo:'linux/linux-original'},{name:'Vercel',logo:'vercel/vercel-original',invert:true},
+      {name:'Render',icon:'🚀'},{name:'AWS (Amazon SES)',icon:'☁️'},
+    ]
+  },
+  {
+    title:'AI & CS Core', icon:'🧠',
+    color:'rgba(124,58,237,0.2)', borderColor:'rgba(124,58,237,0.4)',
     speed: 22,
     items:[
-      {name:'Git / GitHub',icon:'🐙'},{name:'Docker',icon:'🐳'},
-      {name:'Postman',icon:'📮'},{name:'Vercel',icon:'▲'},
-      {name:'Render',icon:'🚀'},{name:'VS Code',icon:'💻'},
-      {name:'Linux',icon:'🐧'},
+      {name:'GPT & Grok Integrations',icon:'🤖'},{name:'LLM Integrations',icon:'✨'},
+      {name:'DSA',icon:'🧩'},{name:'OOP',icon:'📦'},
+      {name:'DBMS',icon:'🗄️'},{name:'Operating Systems',icon:'⚙️'},
     ]
   },
 ];
@@ -830,7 +940,7 @@ function buildSlider(items, speed) {
   const all = [...items, ...items];
   const pills = all.map(it => `
     <div class="sk-pill">
-      <div class="sk-pill-icon">${it.icon}</div>
+      <div class="sk-pill-icon">${it.logo ? `<img src="${DEVICON}${it.logo}.svg" alt="" width="22" height="22" loading="lazy"${it.invert ? ' class="inv"' : ''}>` : it.icon}</div>
       <div class="sk-pill-name">${it.name}</div>
     </div>
   `).join('');
@@ -909,76 +1019,91 @@ function drawConnections() {
   }
 }
 
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function animate() {
   ctx.clearRect(0, 0, W, H);
   particles.forEach(p => { p.update(); p.draw(); });
   drawConnections();
   requestAnimationFrame(animate);
 }
-animate();
+if (!reduceMotion) animate();
 
-// ─── GEN-Z CURSOR ───
-const dot = document.getElementById('cur-dot');
-const ring = document.getElementById('cur-ring');
-const blob = document.getElementById('cur-blob');
-const label = document.getElementById('cur-label');
-let mx=0,my=0,rx=0,ry=0,bx=0,by=0;
+// ─── GEN-Z CURSOR (mouse/trackpad only) ───
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.body.classList.add('has-cursor');
+  const dot = document.getElementById('cur-dot');
+  const ring = document.getElementById('cur-ring');
+  const blob = document.getElementById('cur-blob');
+  const label = document.getElementById('cur-label');
+  let mx=0,my=0,rx=0,ry=0,bx=0,by=0;
 
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  dot.style.left=mx+'px'; dot.style.top=my+'px';
-  label.style.left=mx+'px'; label.style.top=my+'px';
-});
-(function loopRing(){
-  rx+=(mx-rx)*.18; ry+=(my-ry)*.18;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  bx+=(mx-bx)*.08; by+=(my-by)*.08;
-  blob.style.left=bx+'px'; blob.style.top=by+'px';
-  requestAnimationFrame(loopRing);
-})();
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX; my=e.clientY;
+    document.body.classList.add('cur-in');
+    dot.style.left=mx+'px'; dot.style.top=my+'px';
+    label.style.left=mx+'px'; label.style.top=my+'px';
+  });
+  (function loopRing(){
+    rx+=(mx-rx)*.18; ry+=(my-ry)*.18;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    bx+=(mx-bx)*.08; by+=(my-by)*.08;
+    blob.style.left=bx+'px'; blob.style.top=by+'px';
+    requestAnimationFrame(loopRing);
+  })();
 
-// hover detection — label text per element type
-const hoverMap=[
-  {sel:'a[href]',  text:'Go →'},
-  {sel:'button',   text:'Click'},
-  {sel:'.project-card', text:'Project'},
-  {sel:'.cert-card',    text:'Cert'},
-  {sel:'.ach-card',     text:'Achievement'},
-  {sel:'.sk-pill',      text:'Skill'},
-  {sel:'.send-btn',     text:'Send ✉'},
-];
+  // hover detection — label text per element type
+  const hoverMap=[
+    {sel:'a[href]',  text:'Go →'},
+    {sel:'button',   text:'Click'},
+    {sel:'.project-card', text:'Project'},
+    {sel:'.cert-card',    text:'Cert'},
+    {sel:'.ach-card',     text:'Achievement'},
+    {sel:'.sk-pill',      text:'Skill'},
+    {sel:'.send-btn',     text:'Send ✉'},
+  ];
 
-hoverMap.forEach(({sel,text})=>{
-  document.querySelectorAll(sel).forEach(el=>{
-    el.addEventListener('mouseenter',()=>{
-      document.body.classList.add('cur-hover');
-      label.textContent=text;
-      // dynamic glow color per type
-      if(sel.includes('project')) blob.style.background='radial-gradient(circle,rgba(124,58,237,0.6),transparent 70%)';
-      else if(sel.includes('cert')) blob.style.background='radial-gradient(circle,rgba(6,182,212,0.55),transparent 70%)';
-      else blob.style.background='radial-gradient(circle,rgba(159,95,253,0.5),rgba(6,182,212,0.2) 60%,transparent 100%)';
-    });
-    el.addEventListener('mouseleave',()=>{
-      document.body.classList.remove('cur-hover');
-      blob.style.background='radial-gradient(circle,rgba(124,58,237,0.45) 0%,rgba(6,182,212,0.15) 60%,transparent 100%)';
+  hoverMap.forEach(({sel,text})=>{
+    document.querySelectorAll(sel).forEach(el=>{
+      el.addEventListener('mouseenter',()=>{
+        document.body.classList.add('cur-hover');
+        label.textContent=text;
+        // dynamic glow color per type
+        if(sel.includes('project')) blob.style.background='radial-gradient(circle,rgba(124,58,237,0.6),transparent 70%)';
+        else if(sel.includes('cert')) blob.style.background='radial-gradient(circle,rgba(6,182,212,0.55),transparent 70%)';
+        else blob.style.background='radial-gradient(circle,rgba(159,95,253,0.5),rgba(6,182,212,0.2) 60%,transparent 100%)';
+      });
+      el.addEventListener('mouseleave',()=>{
+        document.body.classList.remove('cur-hover');
+        blob.style.background='radial-gradient(circle,rgba(124,58,237,0.45) 0%,rgba(6,182,212,0.15) 60%,transparent 100%)';
+      });
     });
   });
-});
 
-document.addEventListener('mousedown',()=>document.body.classList.add('cur-click'));
-document.addEventListener('mouseup',()=>document.body.classList.remove('cur-click'));
+  document.documentElement.addEventListener('mouseleave',()=>document.body.classList.remove('cur-in'));
+  document.querySelectorAll('input,textarea,select').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cur-text'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-text'));
+  });
 
-// ─── LOADER ───
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const loader = document.getElementById('loader');
-    loader.style.opacity = '0'; loader.style.transition = 'opacity .6s';
-    setTimeout(() => loader.remove(), 600);
-  }, 2000);
-});
+  document.addEventListener('mousedown',()=>document.body.classList.add('cur-click'));
+  document.addEventListener('mouseup',()=>document.body.classList.remove('cur-click'));
+}
+
+// ─── MOBILE MENU ───
+const navbar = document.getElementById('navbar');
+const navToggle = document.getElementById('nav-toggle');
+function setMenu(open) {
+  navbar.classList.toggle('open', open);
+  navToggle.setAttribute('aria-expanded', open);
+  navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+navToggle.addEventListener('click', () => setMenu(!navbar.classList.contains('open')));
+document.querySelectorAll('#nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('click', e => { if (!navbar.contains(e.target)) setMenu(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
 // ─── TYPING ANIMATION ───
-const lines = ['AI Engineer & Generative AI Developer','Full Stack Developer (MERN + FastAPI)','Machine Learning & NLP Engineer','LangChain · LangGraph · RAG Architect'];
+const lines = ['Full Stack Developer (MERN · Next.js)','Backend Engineer (Spring Boot · FastAPI)','SDE Intern @ Joveo · JobletAI','Software Engineer'];
 let li = 0, ci = 0, del = false;
 const typedEl = document.getElementById('typed');
 function type() {
@@ -1041,7 +1166,7 @@ async function submitForm(e) {
   e.preventDefault();
   const btn = document.getElementById('send-btn');
   const btnText = document.getElementById('btn-text');
-  btnText.textContent = '⏳ Sending...';
+  btnText.textContent = 'Sending…';
   btn.disabled = true;
 
   const data = {
@@ -1062,11 +1187,9 @@ async function submitForm(e) {
       document.getElementById('form-success').style.display = 'block';
     } else { throw new Error(); }
   } catch {
-    btnText.textContent = '🚀 Send Message';
+    btnText.textContent = 'Send message';
     btn.disabled = false;
-    alert('Message sent! (Set up Formspree at formspree.io to receive emails)');
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+    alert("Sorry, your message couldn't be sent. Please email me at mudabbirarafat000@gmail.com.");
   }
 }
 </script>
