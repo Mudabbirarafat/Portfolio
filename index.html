@@ -711,18 +711,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="proj-body">
         <span class="proj-tag" style="background:rgba(124,58,237,0.2);color:var(--violet2);border:1px solid rgba(124,58,237,0.3)">Generative AI</span>
         <div class="proj-name">StoryForge AI</div>
-        <div class="proj-desc">Type a keyword and StoryForge writes a story with an LLM, then narrates it as audio you can play in the browser. FastAPI backend with a glassmorphism web UI.</div>
+        <div class="proj-desc">Say or type a keyword and StoryForge writes a story about it, then narrates it as audio in the browser: Whisper speech-to-text, Llama 3.3 story generation and gTTS narration behind a FastAPI backend.</div>
         <div class="tech-stack">
-          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">Groq</span><span class="tech-pill">Llama 3.3</span><span class="tech-pill">gTTS</span><span class="tech-pill">JavaScript</span>
+          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">Whisper</span><span class="tech-pill">Llama 3.3</span><span class="tech-pill">gTTS</span><span class="tech-pill">pytest</span><span class="tech-pill">GitHub Actions</span>
         </div>
         <div class="proj-features">
           <h4>Key Features</h4>
           <ul>
-            <li>Story generation with Llama 3.3 70B via the Groq API</li>
-            <li>Text-to-speech narration served as MP3</li>
-            <li>Adjustable story length</li>
-            <li>Microphone recording UI (speech-to-text in progress)</li>
-            <li>REST endpoints for generation and audio playback</li>
+            <li>Voice input transcribed with Whisper via the Groq API</li>
+            <li>Story generation with Llama 3.3 70B and gTTS narration</li>
+            <li>Blocking AI calls run off the event loop to keep the API responsive</li>
+            <li>Pydantic validation; audio route serves only generated files</li>
+            <li>Mocked-LLM test suite running in GitHub Actions CI</li>
           </ul>
         </div>
         <div class="proj-footer">
