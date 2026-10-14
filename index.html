@@ -203,6 +203,11 @@ section{position:relative;z-index:1;scroll-margin-top:24px;min-height:100vh;disp
 
 /* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px}
+/* odd last card: centre it instead of leaving it alone on the left */
+@media(min-width:901px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .projects-grid>.project-card:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 14px);justify-self:center}
+}
 .project-card{background:var(--card);border:1px solid var(--glass-border);border-radius:24px;overflow:hidden;transition:all .4s;position:relative}
 .project-card:hover{transform:translateY(-8px);border-color:rgba(124,58,237,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px var(--glow-v)}
 .project-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--glass-border)}
