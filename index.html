@@ -467,7 +467,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Internships</span></div>
     <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Client Sites Live</span></div>
-    <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Personal Projects</span></div>
+    <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Personal Projects</span></div>
     <div class="stat"><span class="stat-num" data-target="25">0</span><span class="stat-label">Technologies</span></div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> <span>Scroll to explore</span></div>
@@ -649,9 +649,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="projects">
   <div class="section-label">Projects</div>
   <h2 class="section-title">What I've <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Built</span></h2>
-  <p class="section-sub">Full stack, backend and AI projects, from MERN and Spring Boot apps to LLM-powered pipelines.</p>
+  <p class="section-sub">Backend, full stack and applied-AI projects: FastAPI services, a deep-learning model and a MERN web app.</p>
 
   <div class="projects-grid">
+
+    <!-- AI Learning Assistant -->
+    <div class="project-card reveal">
+      <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#1e0a3c,#0a2a3a)"><span>AI Learning Assistant</span></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(124,58,237,0.2);color:var(--violet2);border:1px solid rgba(124,58,237,0.3)">Backend · RAG</span>
+        <div class="proj-name">AI Learning Assistant</div>
+        <div class="proj-desc">FastAPI backend that generates personalised learning roadmaps, recommends projects, and answers questions grounded in the user's own roadmap through a retrieval-augmented chat endpoint.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">Pydantic</span><span class="tech-pill">RAG</span><span class="tech-pill">scikit-learn</span><span class="tech-pill">Grok API</span><span class="tech-pill">pytest</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Layered architecture: routes, services, storage and typed errors kept separate</li>
+            <li>RAG chat: roadmap chunking, TF-IDF retrieval with a similarity floor, conversation history</li>
+            <li>Structured JSON output from the LLM with validation and self-correcting retries</li>
+            <li>TTL response cache to cut repeat LLM calls</li>
+            <li>API tests with the LLM mocked</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/ai-learning-assistant" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHL Recommender -->
+    <div class="project-card reveal">
+      <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#0a2040,#102a2a)"><span>SHL Recommender</span></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(6,182,212,0.15);color:var(--cyan);border:1px solid rgba(6,182,212,0.3)">Search · Recommendation</span>
+        <div class="proj-name">SHL Assessment Recommender</div>
+        <div class="proj-desc">Conversational API that helps recruiters pick SHL assessments: it asks clarifying questions, recommends from a catalog of 377 assessments I scraped, refines results as requirements change, and compares options. Built as a take-home challenge.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">TF-IDF</span><span class="tech-pill">Web Scraping</span><span class="tech-pill">Docker</span><span class="tech-pill">Render</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Scraper that built a 377-item assessment catalog</li>
+            <li>TF-IDF retrieval and ranking, recommending only real catalog items</li>
+            <li>Dialogue flow for clarifying, refining and comparing</li>
+            <li>Handles prompt-injection and off-topic requests</li>
+            <li>API tests, Dockerfile and Render deploy config</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/shl-assessment-recommender" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
 
     <!-- StoryForge -->
     <div class="project-card reveal">
@@ -659,50 +711,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="proj-body">
         <span class="proj-tag" style="background:rgba(124,58,237,0.2);color:var(--violet2);border:1px solid rgba(124,58,237,0.3)">Generative AI</span>
         <div class="proj-name">StoryForge AI</div>
-        <div class="proj-desc">AI-powered Voice Story Generator that converts voice input into dynamically narrated immersive stories using a STT → LLM → TTS pipeline. Scalable async backend reducing latency by 40%.</div>
+        <div class="proj-desc">Type a keyword and StoryForge writes a story with an LLM, then narrates it as audio you can play in the browser. FastAPI backend with a glassmorphism web UI.</div>
         <div class="tech-stack">
-          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">LLMs</span><span class="tech-pill">STT</span><span class="tech-pill">TTS</span><span class="tech-pill">OpenAI</span>
+          <span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">Groq</span><span class="tech-pill">Llama 3.3</span><span class="tech-pill">gTTS</span><span class="tech-pill">JavaScript</span>
         </div>
         <div class="proj-features">
           <h4>Key Features</h4>
           <ul>
-            <li>Voice-based story generation with STT pipeline</li>
-            <li>Multiple LLM support (OpenAI-compatible)</li>
-            <li>Async FastAPI backend with 40% latency reduction</li>
-            <li>Contextually rich narrative generation</li>
-            <li>Production-ready architecture</li>
+            <li>Story generation with Llama 3.3 70B via the Groq API</li>
+            <li>Text-to-speech narration served as MP3</li>
+            <li>Adjustable story length</li>
+            <li>Microphone recording UI (speech-to-text in progress)</li>
+            <li>REST endpoints for generation and audio playback</li>
           </ul>
         </div>
         <div class="proj-footer">
-          <a href="https://storyforge-ai-voice-narrator.vercel.app" target="_blank" rel="noopener" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live Demo</a>
           <a rel="noopener" href="https://github.com/Mudabbirarafat/storyforge-ai-voice-narrator" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- FitLife -->
-    <div class="project-card reveal">
-      <div class="project-thumb"><img src="assets/projects/fitlife.webp" alt="FitLife fitness platform home page" loading="lazy" width="960" height="600"></div>
-      <div class="proj-body">
-        <span class="proj-tag" style="background:rgba(234,88,12,0.15);color:#fb923c;border:1px solid rgba(234,88,12,0.3)">Full Stack · MERN</span>
-        <div class="proj-name">FitLife</div>
-        <div class="proj-desc">Full-stack fitness platform with role-based JWT auth securing 10+ API endpoints, 15+ RESTful APIs, and a responsive React UI for personalised workout tracking & analytics.</div>
-        <div class="tech-stack">
-          <span class="tech-pill">React.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">Express.js</span><span class="tech-pill">MongoDB</span><span class="tech-pill">JWT</span><span class="tech-pill">Tailwind</span>
-        </div>
-        <div class="proj-features">
-          <h4>Key Features</h4>
-          <ul>
-            <li>Role-based JWT authentication</li>
-            <li>Workout tracking & progress analytics</li>
-            <li>15+ RESTful API endpoints</li>
-            <li>Admin panel & user dashboard</li>
-            <li>Fully responsive cross-device UI</li>
-          </ul>
-        </div>
-        <div class="proj-footer">
-          <a href="https://mern-gym-website-dlcu.vercel.app/" target="_blank" rel="noopener" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live Demo</a>
-          <a rel="noopener" href="https://github.com/Mudabbirarafat/mern-gym-website" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
         </div>
       </div>
     </div>
@@ -711,20 +735,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="project-card reveal">
       <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#0a2040,#0d3a1a)"><span>MedVision AI</span></div>
       <div class="proj-body">
-        <span class="proj-tag" style="background:rgba(6,182,212,0.15);color:var(--cyan);border:1px solid rgba(6,182,212,0.3)">AI + Computer Vision</span>
+        <span class="proj-tag" style="background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3)">Deep Learning · Computer Vision</span>
         <div class="proj-name">MedVision AI</div>
-        <div class="proj-desc">AI-Powered Medical Diagnosis System combining Computer Vision and ML for medical image analysis, disease prediction, and secure clinical dashboards.</div>
+        <div class="proj-desc">Chest X-ray analysis system: a ResNet18 model trained on the CheXpert dataset flags six conditions, served through a FastAPI gateway and a separate model service that also writes a plain-language report.</div>
         <div class="tech-stack">
-          <span class="tech-pill">Python</span><span class="tech-pill">React.js</span><span class="tech-pill">FastAPI</span><span class="tech-pill">CV</span><span class="tech-pill">MongoDB</span><span class="tech-pill">REST API</span>
+          <span class="tech-pill">Python</span><span class="tech-pill">PyTorch</span><span class="tech-pill">ResNet18</span><span class="tech-pill">FastAPI</span><span class="tech-pill">CheXpert</span><span class="tech-pill">pytest</span>
         </div>
         <div class="proj-features">
           <h4>Key Features</h4>
           <ul>
-            <li>AI-assisted medical image analysis</li>
-            <li>Disease prediction with ML models</li>
-            <li>Secure JWT authentication</li>
-            <li>Responsive clinical dashboard</li>
-            <li>REST API architecture</li>
+            <li>Multi-label classifier for 6 CheXpert findings</li>
+            <li>Training pipeline with class-weighted loss and AdamW + cosine schedule</li>
+            <li>Two-service design: API gateway and model service</li>
+            <li>Template-based report generation and Q&amp;A on results</li>
+            <li>40+ automated tests</li>
           </ul>
         </div>
         <div class="proj-footer">
@@ -733,28 +757,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Courier Management -->
+    <!-- FitLife -->
     <div class="project-card reveal">
-      <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#0a1a2d,#1a0a2d)"><span>Courier Management</span></div>
+      <div class="project-thumb"><img src="assets/projects/fitlife.webp" alt="FitLife gym website home page" loading="lazy" width="960" height="600"></div>
       <div class="proj-body">
-        <span class="proj-tag" style="background:rgba(99,102,241,0.15);color:#a78bfa;border:1px solid rgba(99,102,241,0.3)">Spring Boot · Java</span>
-        <div class="proj-name">Courier Management System</div>
-        <div class="proj-desc">Role-based courier tracking platform built with Spring Boot supporting Admin, Agent, and Customer workflows. Normalized MySQL schema (8 tables) handling 1000+ shipment records efficiently.</div>
+        <span class="proj-tag" style="background:rgba(234,88,12,0.15);color:#fb923c;border:1px solid rgba(234,88,12,0.3)">Full Stack · MERN</span>
+        <div class="proj-name">FitLife Gym Website</div>
+        <div class="proj-desc">Full-stack gym website (branded Elite Edge Fitness) with pricing plans, member login, an admin dashboard, and a contact form that emails the gym.</div>
         <div class="tech-stack">
-          <span class="tech-pill">Java</span><span class="tech-pill">Spring Boot</span><span class="tech-pill">MySQL</span><span class="tech-pill">JWT</span><span class="tech-pill">REST APIs</span>
+          <span class="tech-pill">React.js</span><span class="tech-pill">Node.js</span><span class="tech-pill">Express.js</span><span class="tech-pill">MongoDB</span><span class="tech-pill">JWT</span><span class="tech-pill">Tailwind</span>
         </div>
         <div class="proj-features">
           <h4>Key Features</h4>
           <ul>
-            <li>Real-time shipment tracking</li>
-            <li>Multi-role JWT authentication (Admin/Agent/Customer)</li>
-            <li>Normalized 8-table MySQL schema</li>
-            <li>CRUD with validation & exception handling</li>
-            <li>Handles 1000+ shipment records</li>
+            <li>JWT authentication with user and admin roles</li>
+            <li>10 protected API routes, about 15 REST endpoints</li>
+            <li>Admin dashboard for members and enquiries</li>
+            <li>Contact form with email alerts via Nodemailer</li>
+            <li>Responsive React UI</li>
           </ul>
         </div>
         <div class="proj-footer">
-          <a rel="noopener" href="https://github.com/Mudabbirarafat/Courier_Management_springboot" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/mern-gym-website" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
         </div>
       </div>
     </div>
