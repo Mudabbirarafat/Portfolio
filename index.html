@@ -136,7 +136,9 @@ section{position:relative;z-index:1;scroll-margin-top:24px;min-height:100vh;disp
 .hero-eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
 .hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;animation:fadeUp .8s .3s both}
 .hero-name span{display:block}
-.hero-name .gname{background:linear-gradient(135deg,var(--white) 30%,var(--violet2) 70%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-name .gname{background:linear-gradient(135deg,var(--white) 18%,var(--violet2) 42%,var(--cyan) 58%,var(--white) 82%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 11s ease-in-out infinite}
+/* Slow enough to read as light moving over the letters, not as a loop. */
+@keyframes sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hero-tagline{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--muted);margin:20px 0 12px;max-width:560px;line-height:1.6;animation:fadeUp .8s .4s both}
 .typed-line{font-family:'JetBrains Mono',monospace;font-size:clamp(.85rem,2vw,1rem);color:var(--cyan);margin-bottom:36px;animation:fadeUp .8s .5s both;min-height:1.5em}
 .typed-cursor{animation:blink .7s infinite}
@@ -149,7 +151,15 @@ section{position:relative;z-index:1;scroll-margin-top:24px;min-height:100vh;disp
 .btn-outline:hover{border-color:var(--violet2);background:rgba(124,58,237,0.1);transform:translateY(-2px)}
 .btn-cyan{background:linear-gradient(135deg,#0891b2,var(--cyan));color:#fff;box-shadow:0 0 25px var(--glow-c)}
 .btn-cyan:hover{box-shadow:0 0 40px var(--glow-c);transform:translateY(-2px)}
-.hero-stats{display:flex;gap:36px;margin-top:60px;animation:fadeUp .8s .7s both}
+/* LIVE STRIP — the hero made claims and showed no evidence. These are the
+   three things a stranger can click and see running inside five seconds. */
+.hero-live{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:26px;animation:fadeUp .8s .65s both}
+.hero-live-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.live-chip{display:inline-flex;align-items:center;gap:9px;padding:7px 16px;border-radius:50px;font-size:.78rem;font-weight:600;text-decoration:none;color:var(--white);background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.28);transition:all .25s}
+.live-chip:hover{background:rgba(16,185,129,0.16);border-color:#34d399;transform:translateY(-2px)}
+.live-chip::before{content:'';width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:pulse 2.2s ease-in-out infinite;flex-shrink:0}
+.live-chip em{font-style:normal;color:var(--muted);font-weight:500;font-size:.72rem}
+.hero-stats{display:flex;gap:36px;margin-top:34px;animation:fadeUp .8s .75s both}
 .stat{display:flex;flex-direction:column}
 .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .stat-label{font-size:.78rem;color:var(--muted);letter-spacing:.05em;margin-top:2px}
@@ -185,10 +195,13 @@ section{position:relative;z-index:1;scroll-margin-top:24px;min-height:100vh;disp
 .skill-block-title{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700}
 .skill-block-count{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);background:rgba(255,255,255,0.05);padding:3px 10px;border-radius:50px;border:1px solid var(--glass-border)}
 /* slider track */
-.skill-slider-wrap{position:relative;overflow:hidden;padding-bottom:28px}
-.skill-slider-wrap::before,.skill-slider-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
-.skill-slider-wrap::before{left:0;background:linear-gradient(to right,var(--card),transparent)}
-.skill-slider-wrap::after{right:0;background:linear-gradient(to left,var(--card),transparent)}
+/* The edges were covered by a gradient in var(--card), which is only 85%
+   opaque - so the pill underneath stayed readable through it and the row
+   looked clipped rather than faded. A mask removes those pixels instead of
+   painting over them, and holds up whatever the card is sitting on. */
+.skill-slider-wrap{position:relative;overflow:hidden;padding-bottom:28px;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 72px,#000 calc(100% - 72px),transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 72px,#000 calc(100% - 72px),transparent 100%)}
 .skill-slider{display:flex;gap:14px;width:max-content;animation:slide-left 30s linear infinite}
 .skill-slider:hover{animation-play-state:paused}
 @keyframes slide-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -210,6 +223,10 @@ section{position:relative;z-index:1;scroll-margin-top:24px;min-height:100vh;disp
 }
 .project-card{background:var(--card);border:1px solid var(--glass-border);border-radius:24px;overflow:hidden;transition:all .4s;position:relative}
 .project-card:hover{transform:translateY(-8px);border-color:rgba(124,58,237,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px var(--glow-v)}
+/* A highlight that follows the pointer. The card already lifts on hover;
+   this is what makes it read as lit rather than merely moved. */
+.project-card::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(440px circle at var(--mx,50%) var(--my,0%),rgba(159,95,253,0.15),transparent 62%)}
+.project-card:hover::after{opacity:1}
 .project-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--glass-border)}
 .project-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.23,1,.32,1)}
 .project-card:hover .project-thumb img{transform:scale(1.04)}
@@ -468,6 +485,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="https://drive.google.com/file/d/17XCQ_W0seSfo4JW3VPw-pYKIL62mYzt8/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg> Resume</a>
     <a href="https://github.com/Mudabbirarafat" target="_blank" rel="noopener" class="btn btn-outline btn-icon" aria-label="GitHub"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg></a>
     <a href="https://www.linkedin.com/in/mudabbirarafat" target="_blank" rel="noopener" class="btn btn-outline btn-icon" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+  </div>
+  <div class="hero-live">
+    <span class="hero-live-label">Live now</span>
+    <a class="live-chip" href="https://depwatch-2oj2.onrender.com" target="_blank" rel="noopener">depwatch <em>dashboard</em></a>
+    <a class="live-chip" href="https://icsf.in/" target="_blank" rel="noopener">icsf.in <em>client site</em></a>
+    <a class="live-chip" href="https://storyforge-ai-voice-narrator.vercel.app" target="_blank" rel="noopener">StoryForge <em>demo</em></a>
   </div>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Internships</span></div>
@@ -1261,6 +1284,20 @@ async function submitForm(e) {
     btn.disabled = false;
     alert("Sorry, your message couldn't be sent. Please email me at mudabbirarafat000@gmail.com.");
   }
+}
+
+// ─── CARD SPOTLIGHT ───
+// Feeds the pointer position to the radial highlight on each project card.
+// Hover-capable pointers only: on a touch screen there is no pointer to
+// follow, and the card would light up wherever it was last tapped.
+if (!reduceMotion && window.matchMedia('(hover:hover)').matches) {
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
 }
 </script>
 </body>
