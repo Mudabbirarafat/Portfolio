@@ -495,7 +495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Internships</span></div>
     <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Client Sites Live</span></div>
-    <div class="stat"><span class="stat-num" data-target="6">0</span><span class="stat-label">Personal Projects</span></div>
+    <div class="stat"><span class="stat-num" data-target="6" data-plus>0</span><span class="stat-label">Personal Projects</span></div>
     <div class="stat"><span class="stat-num" data-target="25">0</span><span class="stat-label">Technologies</span></div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> <span>Scroll to explore</span></div>
@@ -1239,11 +1239,15 @@ window.addEventListener('scroll', () => {
 // ─── COUNTER ANIMATION ───
 function animateCounter(el) {
   const target = +el.dataset.target;
+  // A "+" where the number is a floor rather than an exact count: anything
+  // from ten up, and any stat that opts in with data-plus. Opting in beats
+  // lowering the threshold, which would turn "3 Internships" into "3+".
+  const suffix = (target >= 10 || 'plus' in el.dataset) ? '+' : '';
   let count = 0;
   const inc = Math.ceil(target / 40);
   const timer = setInterval(() => {
     count = Math.min(count + inc, target);
-    el.textContent = count + (target >= 10 ? '+' : '');
+    el.textContent = count + suffix;
     if (count >= target) clearInterval(timer);
   }, 50);
 }
