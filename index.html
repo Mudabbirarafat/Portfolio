@@ -472,7 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Internships</span></div>
     <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Client Sites Live</span></div>
-    <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Personal Projects</span></div>
+    <div class="stat"><span class="stat-num" data-target="6">0</span><span class="stat-label">Personal Projects</span></div>
     <div class="stat"><span class="stat-num" data-target="25">0</span><span class="stat-label">Technologies</span></div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> <span>Scroll to explore</span></div>
@@ -492,6 +492,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="about-badges">
         <span class="badge">Full Stack</span>
         <span class="badge">Backend & APIs</span>
+        <span class="badge">Data Pipelines</span>
         <span class="badge">Next.js / React</span>
         <span class="badge">Spring Boot</span>
         <span class="badge">PostgreSQL</span>
@@ -544,7 +545,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="tl-role">Software Development Engineer Intern</div>
           <div class="tl-period">Jul 2026 – Present</div>
         </div>
-        <div class="tl-company">Joveo · Gurgaon</div>
+        <div class="tl-company">Joveo · Bangalore</div>
         <ul class="tl-bullets">
           <li>Develop and optimize production features for JobletAI, Joveo's AI-powered job-search platform, using Next.js, React, Supabase/PostgreSQL, and REST APIs.</li>
           <li>Resolved job-search database bottlenecks caused by inefficient wildcard queries through improved indexing strategies.</li>
@@ -654,9 +655,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="projects">
   <div class="section-label">Projects</div>
   <h2 class="section-title">What I've <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Built</span></h2>
-  <p class="section-sub">Backend, full stack and applied-AI projects: FastAPI services, a deep-learning model and a MERN web app.</p>
+  <p class="section-sub">A deployed data pipeline, backend services, applied AI and a MERN web app — with live links where you can try them yourself.</p>
 
   <div class="projects-grid">
+
+    <!-- depwatch -->
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="assets/projects/depwatch.jpg" alt="depwatch dashboard: data-quality gates all passing and scored dependencies" loading="lazy" width="800" height="500"></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3)">Data Pipeline · Full Stack</span>
+        <div class="proj-name">depwatch</div>
+        <div class="proj-desc">Paste a package.json and it names the dependencies still carrying advisories your pinned version has not fixed. An end-to-end pipeline behind a typed React dashboard: npm and PyPI ingested with bounded concurrency and backoff, every payload landed raw before validation, idempotent upserts into the warehouse, version-aware scoring, and a daily refresh that runs behind data-quality gates.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">SQLAlchemy</span><span class="tech-pill">Alembic</span><span class="tech-pill">React</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Docker</span><span class="tech-pill">GitHub Actions</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Two package registries plus the OSV advisory database, ingested on a schedule</li>
+            <li>Raw payloads stored before parsing, so a parser fix replays from disk without refetching</li>
+            <li>An advisory counts only when the version you would actually install sits below the published fix</li>
+            <li>Six data-quality gates that fail the scheduled run — a failed run is the alerting</li>
+            <li>Alembic migrations, a Postgres CI job, and an image build that runs the real container</li>
+            <li>330+ tests across the API, the pipeline and the React dashboard</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://depwatch-2oj2.onrender.com" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live dashboard</a>
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/depwatch" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
 
     <!-- AI Learning Assistant -->
     <div class="project-card reveal">
@@ -731,6 +760,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ul>
         </div>
         <div class="proj-footer">
+          <a rel="noopener" href="https://storyforge-ai-voice-narrator.vercel.app" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live demo</a>
           <a rel="noopener" href="https://github.com/Mudabbirarafat/storyforge-ai-voice-narrator" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
         </div>
       </div>
@@ -783,6 +813,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ul>
         </div>
         <div class="proj-footer">
+          <a rel="noopener" href="https://mern-gym-website-dlcu.vercel.app" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live demo</a>
           <a rel="noopener" href="https://github.com/Mudabbirarafat/mern-gym-website" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
         </div>
       </div>
@@ -939,6 +970,16 @@ const skillCategories = [
     items:[
       {name:'PostgreSQL',logo:'postgresql/postgresql-original'},{name:'Supabase',logo:'supabase/supabase-original'},
       {name:'MongoDB',logo:'mongodb/mongodb-original'},{name:'MySQL',logo:'mysql/mysql-original'},
+    ]
+  },
+  {
+    title:'Data & Pipelines', icon:'🔄',
+    color:'rgba(34,197,94,0.15)', borderColor:'rgba(34,197,94,0.35)',
+    speed: 20,
+    items:[
+      {name:'ETL Pipelines',icon:'🔄'},{name:'SQLAlchemy',icon:'🧱'},
+      {name:'Alembic Migrations',icon:'🗂️'},{name:'Data Quality Gates',icon:'✅'},
+      {name:'GitHub Actions CI',icon:'⚙️'},{name:'pytest',icon:'🧪'},
     ]
   },
   {
