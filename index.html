@@ -488,6 +488,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="hero-live">
     <span class="hero-live-label">Live now</span>
+    <a class="live-chip" href="https://scholarly-jet.vercel.app" target="_blank" rel="noopener">scholarly <em>semantic search</em></a>
     <a class="live-chip" href="https://depwatch-2oj2.onrender.com" target="_blank" rel="noopener">depwatch <em>dashboard</em></a>
     <a class="live-chip" href="https://icsf.in/" target="_blank" rel="noopener">icsf.in <em>client site</em></a>
     <a class="live-chip" href="https://storyforge-ai-voice-narrator.vercel.app" target="_blank" rel="noopener">StoryForge <em>demo</em></a>
@@ -495,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Internships</span></div>
     <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Client Sites Live</span></div>
-    <div class="stat"><span class="stat-num" data-target="6" data-plus>0</span><span class="stat-label">Personal Projects</span></div>
+    <div class="stat"><span class="stat-num" data-target="7" data-plus>0</span><span class="stat-label">Personal Projects</span></div>
     <div class="stat"><span class="stat-num" data-target="25">0</span><span class="stat-label">Technologies</span></div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> <span>Scroll to explore</span></div>
@@ -681,6 +682,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="section-sub">A deployed data pipeline, backend services, applied AI and a MERN web app — with live links where you can try them yourself.</p>
 
   <div class="projects-grid">
+
+    <!-- scholarly -->
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="assets/projects/scholarly.jpg" alt="scholarly: the same query answered by a dense retriever and by BM25, side by side, with scores and matched terms" loading="lazy" width="800" height="500"></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(99,102,241,0.15);color:#818cf8;border:1px solid rgba(99,102,241,0.3)">AI Search · Full Stack</span>
+        <div class="proj-name">scholarly</div>
+        <div class="proj-desc">Describe a paper in plain English and get back the work it would cite, over 114,581 arXiv computer-science abstracts. The search is the easy part; the point is the evidence beside it. A paper's abstract is the query and the works it cites are the correct answers, so the ground truth costs nothing and nobody labelled it by hand — and the measured recall of both retrievers is published on the page that serves them.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span><span class="tech-pill">SQLite FTS5</span><span class="tech-pill">ONNX Runtime</span><span class="tech-pill">NumPy</span><span class="tech-pill">SQLAlchemy</span><span class="tech-pill">React</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Vite</span><span class="tech-pill">GitHub Actions</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>Dense retrieval beats the BM25 floor on a frozen query set: recall@10 0.1182 against 0.1059, recall@50 up 25%</li>
+            <li>The evaluation gates the deploy — a rebuild that retrieves worse exits non-zero and does not publish</li>
+            <li>Every number is quoted with its ceiling: only 14.7% of citation edges point at a document the index can hold</li>
+            <li>Encoding runs in CI because a transformer does not fit beside the data on a 512 MB instance; serving is 291 MB, measured</li>
+            <li>Ingest refuses to call a short walk a success, and the gate stands down rather than judge a partial index</li>
+            <li>Both retrievers shown side by side, each stating what it can and cannot explain</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://scholarly-jet.vercel.app" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live search</a>
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/scholarly" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
 
     <!-- depwatch -->
     <div class="project-card reveal">
