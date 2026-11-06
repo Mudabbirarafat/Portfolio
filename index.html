@@ -46,55 +46,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 html{scroll-behavior:smooth;font-size:16px}
 body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
 
-/* CUSTOM CURSOR — Gen-Z (mouse/trackpad only; touch screens keep the normal behaviour) */
-#cur-dot,#cur-ring,#cur-blob,#cur-label{display:none}
-body.has-cursor #cur-dot,body.has-cursor #cur-ring,body.has-cursor #cur-blob,body.has-cursor #cur-label{display:block}
-body.has-cursor,body.has-cursor *{cursor:none!important}
-/* text fields get the normal typing cursor, and the custom one steps aside */
-body.has-cursor input,body.has-cursor textarea,body.has-cursor select{cursor:text!important}
-body.has-cursor.cur-text #cur-dot,body.has-cursor.cur-text #cur-ring,body.has-cursor.cur-text #cur-blob,body.has-cursor.cur-text #cur-label,
-body.has-cursor:not(.cur-in) #cur-dot,body.has-cursor:not(.cur-in) #cur-ring,body.has-cursor:not(.cur-in) #cur-blob,body.has-cursor:not(.cur-in) #cur-label{opacity:0}
-#cur-dot{
-  position:fixed;width:8px;height:8px;
-  background:#fff;border-radius:50%;
-  pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:width .15s,height .15s,background .15s,border-radius .2s;
-  mix-blend-mode:difference;
-}
-#cur-blob{
-  position:fixed;width:40px;height:40px;
-  border-radius:50%;pointer-events:none;z-index:9997;
-  transform:translate(-50%,-50%);
-  background:radial-gradient(circle,rgba(124,58,237,0.45) 0%,rgba(6,182,212,0.15) 60%,transparent 100%);
-  filter:blur(2px);
-  transition:width .4s cubic-bezier(.23,1,.32,1),height .4s cubic-bezier(.23,1,.32,1),background .3s;
-}
-#cur-ring{
-  position:fixed;width:36px;height:36px;
-  border:1.5px solid rgba(159,95,253,0.55);
-  border-radius:50%;pointer-events:none;z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:width .25s cubic-bezier(.23,1,.32,1),height .25s,border-color .25s,border-radius .25s;
-}
-#cur-label{
-  position:fixed;pointer-events:none;z-index:10000;
-  font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:#fff;background:rgba(124,58,237,0.9);
-  padding:4px 10px;border-radius:50px;
-  opacity:0;transform:translate(14px,-50%) scale(.8);
-  transition:opacity .2s,transform .2s;
-  white-space:nowrap;backdrop-filter:blur(8px);
-}
-/* hover states set via JS classes */
-body.cur-hover #cur-dot{width:6px;height:6px;background:var(--violet2)}
-body.cur-hover #cur-ring{width:52px;height:52px;border-color:rgba(6,182,212,0.7);border-radius:30%}
-body.cur-hover #cur-blob{width:60px;height:60px}
-body.cur-hover #cur-label{opacity:1;transform:translate(20px,-50%) scale(1)}
-body.cur-click #cur-dot{width:16px;height:16px;background:var(--cyan);border-radius:4px}
-body.cur-click #cur-ring{width:24px;height:24px;border-color:var(--cyan)}
-body.cur-click #cur-blob{width:28px;height:28px}
 
 /* SCROLL PROGRESS */
 #scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--violet),var(--cyan));z-index:1000;transition:width .1s}
@@ -434,10 +385,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </svg>
 
 <!-- CURSOR -->
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
-<div id="cur-blob"></div>
-<div id="cur-label">View</div>
 
 <!-- SCROLL PROGRESS -->
 <div id="scroll-progress"></div>
@@ -1149,67 +1096,6 @@ function animate() {
   requestAnimationFrame(animate);
 }
 if (!reduceMotion) animate();
-
-// ─── GEN-Z CURSOR (mouse/trackpad only) ───
-if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  document.body.classList.add('has-cursor');
-  const dot = document.getElementById('cur-dot');
-  const ring = document.getElementById('cur-ring');
-  const blob = document.getElementById('cur-blob');
-  const label = document.getElementById('cur-label');
-  let mx=0,my=0,rx=0,ry=0,bx=0,by=0;
-
-  document.addEventListener('mousemove',e=>{
-    mx=e.clientX; my=e.clientY;
-    document.body.classList.add('cur-in');
-    dot.style.left=mx+'px'; dot.style.top=my+'px';
-    label.style.left=mx+'px'; label.style.top=my+'px';
-  });
-  (function loopRing(){
-    rx+=(mx-rx)*.18; ry+=(my-ry)*.18;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    bx+=(mx-bx)*.08; by+=(my-by)*.08;
-    blob.style.left=bx+'px'; blob.style.top=by+'px';
-    requestAnimationFrame(loopRing);
-  })();
-
-  // hover detection — label text per element type
-  const hoverMap=[
-    {sel:'a[href]',  text:'Go →'},
-    {sel:'button',   text:'Click'},
-    {sel:'.project-card', text:'Project'},
-    {sel:'.cert-card',    text:'Cert'},
-    {sel:'.ach-card',     text:'Achievement'},
-    {sel:'.sk-pill',      text:'Skill'},
-    {sel:'.send-btn',     text:'Send ✉'},
-  ];
-
-  hoverMap.forEach(({sel,text})=>{
-    document.querySelectorAll(sel).forEach(el=>{
-      el.addEventListener('mouseenter',()=>{
-        document.body.classList.add('cur-hover');
-        label.textContent=text;
-        // dynamic glow color per type
-        if(sel.includes('project')) blob.style.background='radial-gradient(circle,rgba(124,58,237,0.6),transparent 70%)';
-        else if(sel.includes('cert')) blob.style.background='radial-gradient(circle,rgba(6,182,212,0.55),transparent 70%)';
-        else blob.style.background='radial-gradient(circle,rgba(159,95,253,0.5),rgba(6,182,212,0.2) 60%,transparent 100%)';
-      });
-      el.addEventListener('mouseleave',()=>{
-        document.body.classList.remove('cur-hover');
-        blob.style.background='radial-gradient(circle,rgba(124,58,237,0.45) 0%,rgba(6,182,212,0.15) 60%,transparent 100%)';
-      });
-    });
-  });
-
-  document.documentElement.addEventListener('mouseleave',()=>document.body.classList.remove('cur-in'));
-  document.querySelectorAll('input,textarea,select').forEach(el=>{
-    el.addEventListener('mouseenter',()=>document.body.classList.add('cur-text'));
-    el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-text'));
-  });
-
-  document.addEventListener('mousedown',()=>document.body.classList.add('cur-click'));
-  document.addEventListener('mouseup',()=>document.body.classList.remove('cur-click'));
-}
 
 // ─── MOBILE MENU ───
 const navbar = document.getElementById('navbar');
