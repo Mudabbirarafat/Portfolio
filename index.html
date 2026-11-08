@@ -437,13 +437,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hero-live-label">Live now</span>
     <a class="live-chip" href="https://scholarly-jet.vercel.app" target="_blank" rel="noopener">scholarly <em>semantic search</em></a>
     <a class="live-chip" href="https://depwatch-2oj2.onrender.com" target="_blank" rel="noopener">depwatch <em>dashboard</em></a>
+    <a class="live-chip" href="https://cyberrun-tau.vercel.app" target="_blank" rel="noopener">CyberRun <em>3D game</em></a>
     <a class="live-chip" href="https://icsf.in/" target="_blank" rel="noopener">icsf.in <em>client site</em></a>
     <a class="live-chip" href="https://storyforge-ai-voice-narrator.vercel.app" target="_blank" rel="noopener">StoryForge <em>demo</em></a>
   </div>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Internships</span></div>
     <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-label">Client Sites Live</span></div>
-    <div class="stat"><span class="stat-num" data-target="7" data-plus>0</span><span class="stat-label">Personal Projects</span></div>
+    <div class="stat"><span class="stat-num" data-target="8" data-plus>0</span><span class="stat-label">Personal Projects</span></div>
     <div class="stat"><span class="stat-num" data-target="25">0</span><span class="stat-label">Technologies</span></div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div> <span>Scroll to explore</span></div>
@@ -626,7 +627,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="projects">
   <div class="section-label">Projects</div>
   <h2 class="section-title">What I've <span style="background:linear-gradient(135deg,var(--violet2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Built</span></h2>
-  <p class="section-sub">A deployed data pipeline, backend services, applied AI and a MERN web app — with live links where you can try them yourself.</p>
+  <p class="section-sub">A deployed data pipeline, backend services, applied AI, a 3D browser game and a MERN web app — with live links where you can try them yourself.</p>
 
   <div class="projects-grid">
 
@@ -682,6 +683,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="proj-footer">
           <a rel="noopener" href="https://depwatch-2oj2.onrender.com" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Live dashboard</a>
           <a rel="noopener" href="https://github.com/Mudabbirarafat/depwatch" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CyberRun 3D -->
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="assets/projects/cyberrun.jpg" alt="CyberRun 3D: the runner on a neon-railed road between lit towers, with rimmed obstacles and coins ahead" loading="lazy" width="800" height="500"></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3)">3D Game · Real-Time Graphics</span>
+        <div class="proj-name">CyberRun 3D</div>
+        <div class="proj-desc">An endless runner through a neon city, playable in a browser tab with nothing to install and no account to make. The rendering is the visible part; the decision the rest hangs off is that the simulation imports no Three.js at all. The game is a world and a step function, and the renderer reads it and decides nothing — which is what lets the whole thing be tested headlessly, with no canvas and no WebGL to mock.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">TypeScript</span><span class="tech-pill">React</span><span class="tech-pill">Three.js</span><span class="tech-pill">React Three Fiber</span><span class="tech-pill">Drei</span><span class="tech-pill">Postprocessing</span><span class="tech-pill">Zustand</span><span class="tech-pill">Vite</span><span class="tech-pill">Vitest</span><span class="tech-pill">Web Audio API</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>32 tests over the physics and the level generator, none of which needs a browser</li>
+            <li>Physics steps at a fixed 120&nbsp;Hz, so a 144&nbsp;Hz machine plays the same game as a 60&nbsp;Hz one — asserted over 60 seconds of play, not one frame</li>
+            <li>Every generated row is checked for a lane you can actually reach from the lane you are in, across 60 seeds and 400 rows: survivable is not the same as reachable</li>
+            <li>60fps with bloom, chromatic aberration and a vignette — 16.7&nbsp;ms median against a 17.4&nbsp;ms worst frame over 240 frames</li>
+            <li>Obstacles are instanced meshes whose count changes rather than components that mount and unmount, so nothing is allocated while you run</li>
+            <li>Every sound is synthesised from oscillators at runtime; the game ships no audio files, no backend and no database</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://cyberrun-tau.vercel.app" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Play it</a>
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/cyberrun" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
         </div>
       </div>
     </div>
