@@ -1,0 +1,33 @@
+# A portfolio does not break when you change it. It breaks while you are not
+# looking: a demo's free instance is reclaimed, a repo is renamed, an image is
+# dropped from a commit. So this runs on a schedule as well as on push, and
+# the schedule is the part that matters.
+name: links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Mondays, 07:00 UTC. Link rot is a weekly problem, not a per-commit one.
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: links-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # No npm install anywhere in this repo: the page is one file and the
+          # checker uses fetch and node:fs.
+          node-version: 24
+
+      - run: node scripts/check-links.mjs
