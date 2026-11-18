@@ -716,6 +716,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- AI Learning Assistant -->
+    <!-- burnrate -->
+    <div class="project-card reveal">
+      <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#3c1a0a,#0a2a3a)"><span>burnrate</span></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(239,68,68,0.2);color:#f87171;border:1px solid rgba(239,68,68,0.3)">SRE &middot; Monitoring</span>
+        <div class="proj-name">burnrate</div>
+        <div class="proj-desc">Blackbox SLO monitoring with the multi-window multi-burn-rate error-budget alerting from the Google SRE Workbook. Probing a URL is a one-afternoon script; deciding when a signal deserves a human is the hard part, and that decision is what this project is about.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">Python</span><span class="tech-pill">SQLite</span><span class="tech-pill">Prometheus</span><span class="tech-pill">GitHub Actions</span><span class="tech-pill">pytest</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>A long window and a short one must both breach before anything fires, so a blip never pages and a real burn does</li>
+            <li>SLIs are ratios, not averages &mdash; a mean hides exactly the latency tail an objective exists to govern</li>
+            <li>Refuses to judge a window below <code>min_samples</code>, so a thin run goes quiet instead of going wrong</li>
+            <li>Scheduled probing from GitHub Actions, with the SQLite history carried between runs in the Actions cache</li>
+            <li>Documents its own limits: an hourly cron measured 14 runs in four days, so the README states what the cadence actually buys</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/burnrate" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- tally -->
+    <div class="project-card reveal">
+      <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#0a3c2a,#102a3a)"><span>tally</span></div>
+      <div class="proj-body">
+        <span class="proj-tag" style="background:rgba(16,185,129,0.2);color:#34d399;border:1px solid rgba(16,185,129,0.3)">Mobile &middot; Distributed systems</span>
+        <div class="proj-name">tally</div>
+        <div class="proj-desc">Shared expenses for people with no signal. Two phones edit the same ledger offline for a day, and when they reconnect the two copies have to agree &mdash; not last-write-wins, not one person’s afternoon silently discarded. A distributed-systems problem wearing an expense tracker’s clothes.</div>
+        <div class="tech-stack">
+          <span class="tech-pill">React Native</span><span class="tech-pill">Expo</span><span class="tech-pill">TypeScript</span><span class="tech-pill">React Native Web</span><span class="tech-pill">Jest</span>
+        </div>
+        <div class="proj-features">
+          <h4>Key Features</h4>
+          <ul>
+            <li>A hybrid logical clock rather than wall time, because phone clocks drift and NTP moves them backwards</li>
+            <li>Per-field merge, so one person fixing the amount and another fixing the description both keep their work</li>
+            <li>A sync cursor a phone offline for a week cannot fall behind</li>
+            <li>Tested against the system clock jumping backwards mid-session and the OS killing the app, both routine on mobile</li>
+            <li>96 tests, run in CI; the same code builds an Android APK and runs in a browser</li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a rel="noopener" href="https://tally-two-sepia.vercel.app" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-external"/></svg> Try it</a>
+          <a rel="noopener" href="https://github.com/Mudabbirarafat/tally" target="_blank" class="proj-link"><svg class="ic-sm" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </div>
+    </div>
+
     <div class="project-card reveal">
       <div class="project-thumb project-thumb--code" style="background:linear-gradient(135deg,#1e0a3c,#0a2a3a)"><span>AI Learning Assistant</span></div>
       <div class="proj-body">
